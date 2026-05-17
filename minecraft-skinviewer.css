@@ -98,6 +98,7 @@
   width: 72px;
   height: 288px;
   margin: 15px auto 40px auto;
+  display: block;
   perspective: 800px;
   perspective-origin: 50% 100px;
   transform-style: preserve-3d;
