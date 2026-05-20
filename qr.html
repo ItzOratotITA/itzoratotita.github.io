@@ -1,123 +1,141 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Oratot.com - QR Code Generator</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<link rel="icon" type="image/png" href="/favicon-96x96.png?v=hello world" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=hello world" />
-<link rel="shortcut icon" href="/favicon.ico?v=hello world" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=hello world" />
-<meta name="apple-mobile-web-app-title" content="Oratot.com" />
-<link rel="manifest" href="/site.webmanifest?v=hello world" />
-	<link rel="stylesheet" href="index.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon-96x96.png?v=hello world"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=hello world" />
+    <link rel="shortcut icon" href="/favicon.ico?v=hello world" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png?v=hello world"
+    />
+    <meta name="apple-mobile-web-app-title" content="Oratot.com" />
+    <link rel="manifest" href="/site.webmanifest?v=hello world" />
+    <link rel="stylesheet" href="index.css" />
   </head>
-</head>
-<body class="text-light">
+  <body class="text-light">
     <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="no-text-deco" href="https://www.oratot.com/"><span class="navbar-brand mb-0 h1 text-primary">Oratot.com</span></a>
-<a class="no-text-deco" href="https://www.oratot.com/qr"><span class="nav-link text-white">QR Code Generator</span></a>
-<a class="no-text-deco" href="https://www.oratot.com/charts"><span class="nav-link text-white">Chart Generator</span></a>
-        </div>
+      <div class="container-fluid">
+        <a class="no-text-deco" href="https://www.oratot.com/"
+          ><span class="navbar-brand mb-0 h1 text-primary">Oratot.com</span></a
+        >
+        <a class="no-text-deco" href="https://www.oratot.com/qr"
+          ><span class="nav-link text-white">QR Code Generator</span></a
+        >
+        <a class="no-text-deco" href="https://www.oratot.com/charts"
+          ><span class="nav-link text-white">Chart Generator</span></a
+        >
+      </div>
     </nav>
 
-  <div class="container my-4">
-    <div class="row">
-      
-      <div class="col-12 col-md-4">
-        <div class="p-4 border bg-dark">
-          <canvas id="skin_container"></canvas>
+    <div class="container my-4">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div class="p-4 border bg-dark">
+            <canvas id="skin_container"></canvas>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-8">
+          <div class="p-4 border bg-dark">
+            <h1>QR Code Generator</h1>
+            <p>Static QR Code generator via npm/qrcode</p>
+            <label for="qrText" class="form-label">Text or link</label>
+            <input
+              type="text"
+              id="qrText"
+              class="form-control mb-3 rounded-0"
+              placeholder="Write a link or some text..."
+              value="https://youtu.be/dQw4w9WgXcQ"
+            />
+
+            <button
+              id="generateQr"
+              class="btn btn-success rounded-0 border mb-3"
+            >
+              Generate QR
+            </button>
+
+            <div class="bg-white p-3 text-center">
+              <canvas id="qrCanvas"></canvas>
+            </div>
+
+            <a
+              id="downloadQr"
+              class="btn btn-primary mt-3 d-none rounded-0 border"
+              download="qrcode.png"
+            >
+              Download PNG
+            </a>
+          </div>
         </div>
       </div>
-
-      <div class="col-12 col-md-8">
-        <div class="p-4 border bg-dark">
-          <h1>QR Code Generator</h1>
-          <p>Static QR Code generator via npm/qrcode</p>
-          <label for="qrText" class="form-label">Text or link</label>
-  <input
-    type="text"
-    id="qrText"
-    class="form-control mb-3 rounded-0"
-    placeholder="Write a link or some text..."
-    value="https://youtu.be/dQw4w9WgXcQ"
-  >
-
-  <button id="generateQr" class="btn btn-success rounded-0 border mb-3">
-    Generate QR
-  </button>
-
-  <div class="bg-white p-3 text-center">
-    <canvas id="qrCanvas"></canvas>
-  </div>
-
-  <a
-    id="downloadQr"
-    class="btn btn-primary mt-3 d-none rounded-0 border"
-    download="qrcode.png"
-  >
-    Download PNG
-  </a>
-        </div>
-      </div>
-
     </div>
-  </div>
 
-  <script type="module">
-    import * as skinview3d from "https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/+esm";
+    <script type="module">
+      import * as skinview3d from "https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/+esm";
 
-    const skinViewer = new skinview3d.SkinViewer({
-      canvas: document.getElementById("skin_container"),
-      width: 300,
-      height: 400,
-      skin: "https://www.oratot.com/skin_definitiva.png",
-      cape: "https://www.oratot.com/eye-blossom-cape.png"
-    });
+      const skinViewer = new skinview3d.SkinViewer({
+        canvas: document.getElementById("skin_container"),
+        width: 300,
+        height: 400,
+        skin: "https://www.oratot.com/skin_definitiva.png",
+        cape: "https://www.oratot.com/eye-blossom-cape.png",
+      });
 
-    skinViewer.controls.enableRotate = true;
-    skinViewer.controls.enableZoom = true;
-  </script>
+      skinViewer.controls.enableRotate = true;
+      skinViewer.controls.enableZoom = true;
+    </script>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
-  <script type="module">
-  import QRCode from "https://cdn.jsdelivr.net/npm/qrcode@1.5.4/+esm";
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module">
+      import QRCode from "https://cdn.jsdelivr.net/npm/qrcode@1.5.4/+esm";
 
-  const input = document.getElementById("qrText");
-  const button = document.getElementById("generateQr");
-  const canvas = document.getElementById("qrCanvas");
-  const download = document.getElementById("downloadQr");
+      const input = document.getElementById("qrText");
+      const button = document.getElementById("generateQr");
+      const canvas = document.getElementById("qrCanvas");
+      const download = document.getElementById("downloadQr");
 
-  async function generateQrCode() {
-    const text = input.value.trim();
+      async function generateQrCode() {
+        const text = input.value.trim();
 
-    if (!text) {
-      alert("Write something before generating the QR code.");
-      return;
-    }
+        if (!text) {
+          alert("Write something before generating the QR code.");
+          return;
+        }
 
-    await QRCode.toCanvas(canvas, text, {
-      width: 220,
-      margin: 2
-    });
+        await QRCode.toCanvas(canvas, text, {
+          width: 220,
+          margin: 2,
+        });
 
-    download.href = canvas.toDataURL("image/png");
-    download.classList.remove("d-none");
-  }
+        download.href = canvas.toDataURL("image/png");
+        download.classList.remove("d-none");
+      }
 
-  button.addEventListener("click", generateQrCode);
+      button.addEventListener("click", generateQrCode);
 
-  input.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          generateQrCode();
+        }
+      });
+
       generateQrCode();
-    }
-  });
-
-  generateQrCode();
-</script>
-</body>
+    </script>
+  </body>
 </html>
