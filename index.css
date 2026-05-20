@@ -52,3 +52,7 @@ body::before {
   transform: scale(1.05);
   z-index: -1;
 }
+
+.mcten {
+  font-family: "Minecraft Ten", sans-serif;
+}
