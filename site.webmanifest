@@ -1,21 +1,21 @@
 {
   "name": "Oratot.com",
-  "short_name": "Oratot.com",
+  "short_name": "Oratot",
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
+      "src": "/web-app-manifest-192x192.png?v=hello world",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/web-app-manifest-512x512.png",
+      "src": "/web-app-manifest-512x512.png?v=hello world",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#212529",
-  "background_color": "#212529",
+  "theme_color": "#1747c1",
+  "background_color": "#191f2d",
   "display": "standalone"
 }
