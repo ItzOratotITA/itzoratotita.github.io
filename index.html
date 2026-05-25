@@ -65,8 +65,26 @@
     <div class="container my-4">
       <div class="row">
         <div class="col-12 col-md-4">
-          <div class="p-4 border bg-dark d-flex justify-content-center">
+          <div
+            class="p-4 border bg-dark position-relative d-flex justify-content-center"
+          >
             <canvas id="skin_container"></canvas>
+            <a
+              href="https://www.oratot.com/skin_definitiva.png"
+              download="skin_definitiva.png"
+              class="btn btn-md btn-dark border rounded-0 position-absolute top-0 start-0 m-2"
+              aria-label="Download Minecraft skin"
+            >
+              ⬇
+            </a>
+            <button
+              id="toggleSkinAnimation"
+              class="btn btn-md btn-dark border rounded-0 position-absolute top-0 end-0 m-2"
+              type="button"
+              aria-label="Toggle animation"
+            >
+              ▶
+            </button>
           </div>
         </div>
 
@@ -110,6 +128,32 @@
 
       skinViewer.controls.enableRotate = true;
       skinViewer.controls.enableZoom = true;
+      let skinAnimationPlaying = false;
+
+      const animationButton = document.getElementById("toggleSkinAnimation");
+
+      function startSkinAnimation() {
+        skinViewer.animation = new skinview3d.WalkingAnimation();
+        skinViewer.animation.speed = 0.8;
+
+        animationButton.textContent = "⏸";
+        skinAnimationPlaying = true;
+      }
+
+      function stopSkinAnimation() {
+        skinViewer.animation = null;
+
+        animationButton.textContent = "▶";
+        skinAnimationPlaying = false;
+      }
+
+      animationButton.addEventListener("click", () => {
+        if (skinAnimationPlaying) {
+          stopSkinAnimation();
+        } else {
+          startSkinAnimation();
+        }
+      });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
