@@ -43,7 +43,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("/assets/louvre.avif");
+  background-image: var(--random-bg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
