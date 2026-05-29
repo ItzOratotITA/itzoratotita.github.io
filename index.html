@@ -13,15 +13,19 @@
     <link
       rel="icon"
       type="image/png"
-      href="/favicon-96x96.png?v=hello world"
+      href="/assets/favicon-96x96.png?v=hello world"
       sizes="96x96"
     />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=hello world" />
-    <link rel="shortcut icon" href="/favicon.ico?v=hello world" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/assets/favicon.svg?v=hello world"
+    />
+    <link rel="shortcut icon" href="/assets/favicon.ico?v=hello world" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/apple-touch-icon.png?v=hello world"
+      href="/assets/apple-touch-icon.png?v=hello world"
     />
     <meta name="apple-mobile-web-app-title" content="Oratot.com" />
     <link rel="manifest" href="/site.webmanifest?v=hello world" />
@@ -36,7 +40,7 @@
           >Oratot.com</a
         >
         <button
-          class="navbar-toggler"
+          class="navbar-toggler rounded-0"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -122,8 +126,8 @@
         canvas: document.getElementById("skin_container"),
         width: 300,
         height: 400,
-        skin: "https://www.oratot.com/skin_definitiva.png",
-        cape: "https://www.oratot.com/eye-blossom-cape.png",
+        skin: "/assets/skin_definitiva.png",
+        cape: "/assets/eye-blossom-cape.png",
       });
 
       skinViewer.controls.enableRotate = true;
