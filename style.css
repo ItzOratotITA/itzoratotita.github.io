@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Minecraft Seven";
   src:
-    url("https://www.oratot.com/MinecraftSeven_v2.woff2") format("woff2"),
-    url("https://www.oratot.com/MinecraftSeven_2.ttf") format("truetype");
+    url("/assets/Minecraft-Seven_v2.woff2") format("woff2"),
+    url("/assets/MinecraftSeven_2.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Minecraft Ten";
-  src: url("https://www.oratot.com/MinecraftTen.woff") format("woff");
+  src: url("/assets/MinecraftTen.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -43,7 +43,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("https://www.oratot.com/louvre.avif");
+  background-image: url("/assets/louvre.avif");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
