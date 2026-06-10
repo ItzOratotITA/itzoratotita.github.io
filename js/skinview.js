@@ -1,13 +1,29 @@
 import * as skinview3d from "https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/+esm";
 
+const canvas = document.getElementById("skin_container");
+const skinViewerBox = document.querySelector(".skin-viewer-box");
+
 const skinViewer = new skinview3d.SkinViewer({
-  canvas: document.getElementById("skin_container"),
-  width: 300,
-  height: 400,
+  canvas,
+  width: skinViewerBox.clientWidth,
+  height: skinViewerBox.clientHeight,
   skin: "/assets/skin_definitiva.png",
   cape: "/assets/eye-blossom-cape.png",
 });
 
+function resizeSkinViewer() {
+  skinViewer.setSize(skinViewerBox.clientWidth, skinViewerBox.clientHeight);
+}
+
+resizeSkinViewer();
+
+const resizeObserver = new ResizeObserver(() => {
+  resizeSkinViewer();
+});
+
+resizeObserver.observe(skinViewerBox);
+
+window.addEventListener("resize", resizeSkinViewer);
 skinViewer.controls.enableRotate = true;
 skinViewer.controls.enableZoom = true;
 let skinAnimationPlaying = false;
@@ -28,7 +44,6 @@ function stopSkinAnimation() {
   animationButton.textContent = "▶";
   skinAnimationPlaying = false;
 }
-
 animationButton.addEventListener("click", () => {
   if (skinAnimationPlaying) {
     stopSkinAnimation();
