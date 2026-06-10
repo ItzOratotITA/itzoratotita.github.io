@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Oratot.com - Chart Generator</title>
+    <title>Chart Generator - oratot.com</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,16 +29,14 @@
     />
     <meta name="apple-mobile-web-app-title" content="Oratot.com" />
     <link rel="manifest" href="/site.webmanifest?v=hello world" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body class="text-light" style="padding-top: 3.7rem">
     <nav
       class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom"
     >
       <div class="container-fluid">
-        <a class="navbar-brand text-primary mcten" href="https://www.oratot.com"
-          >Oratot.com</a
-        >
+        <a class="navbar-brand text-primary mcten" href="/">Oratot.com</a>
         <button
           class="navbar-toggler rounded-0"
           type="button"
@@ -52,15 +50,48 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.oratot.com/qr"
-                >QR Code Generator</a
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
+                General Utils
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark bg-dark rounded-0 border"
+              >
+                <li>
+                  <a class="dropdown-item" href="/utils/qr.html"
+                    >QR Code Generator</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/utils/charts.html"
+                    >Chart Generator</a
+                  >
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="https://www.oratot.com/charts"
-                >Chart Generator</a
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
+                Minecraft Utils
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark bg-dark rounded-0 border"
+              >
+                <li>
+                  <a class="dropdown-item" href="/utils/nether.html"
+                    >Nether Coordinates</a
+                  >
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -143,48 +174,9 @@
       </div>
     </div>
 
-    <script type="module">
-      import * as skinview3d from "https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/+esm";
-
-      const skinViewer = new skinview3d.SkinViewer({
-        canvas: document.getElementById("skin_container"),
-        width: 300,
-        height: 400,
-        skin: "/assets/skin_definitiva.png",
-        cape: "/assets/eye-blossom-cape.png",
-      });
-
-      skinViewer.controls.enableRotate = true;
-      skinViewer.controls.enableZoom = true;
-      let skinAnimationPlaying = false;
-
-      const animationButton = document.getElementById("toggleSkinAnimation");
-
-      function startSkinAnimation() {
-        skinViewer.animation = new skinview3d.WalkingAnimation();
-        skinViewer.animation.speed = 0.8;
-
-        animationButton.textContent = "⏸";
-        skinAnimationPlaying = true;
-      }
-
-      function stopSkinAnimation() {
-        skinViewer.animation = null;
-
-        animationButton.textContent = "▶";
-        skinAnimationPlaying = false;
-      }
-
-      animationButton.addEventListener("click", () => {
-        if (skinAnimationPlaying) {
-          stopSkinAnimation();
-        } else {
-          startSkinAnimation();
-        }
-      });
-    </script>
+    <script type="module" src="/js/skinview.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/background.js"></script>
+    <script src="/js/background.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
       const chartType = document.getElementById("chartType");
