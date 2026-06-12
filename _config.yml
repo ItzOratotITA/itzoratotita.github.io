@@ -1,0 +1,22 @@
+title: oratot.com
+description: "Personal website of an Italian guy who likes video games. Hosting pre-existing JavaScript utilities and more cool stuff!"
+url: "https://www.oratot.com"
+
+author:
+  name: Oratot
+  github: itzoratotita
+  links:
+    - https://www.youtube.com/@ItzOratotITA
+    - https://www.reddit.com/user/Which-Taro5092/
+    - https://www.twitch.tv/oratot
+    - https://github.com/itzoratotita
+
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - .github
+  - README.md
+  - LICENSE
+  - .gitignore
+  - CNAME
