@@ -1,8 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title }} - oratot.com</title>
+    {% seo %}
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -26,17 +28,16 @@
       sizes="180x180"
       href="/assets/apple-touch-icon.png?v=hello world"
     />
-    <meta name="apple-mobile-web-app-title" content="Oratot.com" />
+    <meta name="apple-mobile-web-app-title" content="oratot.com" />
     <link rel="manifest" href="/site.webmanifest?v=hello world" />
     <link rel="stylesheet" href="/style.css" />
-    <title>no js for you >:) - oratot.com</title>
   </head>
-  <body>
+  <body class="text-light" style="padding-top: 3.7rem">
     <nav
       class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom"
     >
       <div class="container-fluid">
-        <a class="navbar-brand text-primary mcten" href="/">Oratot.com</a>
+        <a class="navbar-brand text-primary mcten" href="/">ORATOT.COM</a>
         <button
           class="navbar-toggler rounded-0"
           type="button"
@@ -100,9 +101,44 @@
         </div>
       </div>
     </nav>
-    <div class="container">
-      <p class="text-dark text-center h1" style="margin-top: 4rem">nope</p>
+    <div class="container my-4">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div
+            class="border bg-dark position-relative d-flex justify-content-center skin-viewer-box"
+          >
+            <canvas id="skin_container"></canvas>
+            <a
+              href="/assets/skin_definitiva.png"
+              download="skin_definitiva.png"
+              class="btn btn-md btn-dark border rounded-0 position-absolute top-0 start-0 m-2"
+              aria-label="Download Minecraft skin"
+            >
+              ⬇
+            </a>
+            <button
+              id="toggleSkinAnimation"
+              class="btn btn-md btn-dark border rounded-0 position-absolute top-0 end-0 m-2"
+              type="button"
+              aria-label="Toggle animation"
+            >
+              ▶
+            </button>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-8">
+          {% if page.default_container %}
+          <div class="p-4 border bg-dark">
+            {% endif %}{{ content }} {% if page.default_container %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
     </div>
+    {% if page.custom_scripts %} {{ page.custom_scripts }} {% endif %}
+    <script type="module" src="/js/skinview.js"></script>
+    <script src="/js/background.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
