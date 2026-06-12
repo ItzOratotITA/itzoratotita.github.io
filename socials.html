@@ -1,228 +1,98 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Socials - oratot.com</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/favicon-96x96.png?v=hello world"
-      sizes="96x96"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/assets/favicon.svg?v=hello world"
-    />
-    <link rel="shortcut icon" href="/assets/favicon.ico?v=hello world" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/assets/apple-touch-icon.png?v=hello world"
-    />
-    <meta name="apple-mobile-web-app-title" content="Oratot.com" />
-    <link rel="manifest" href="/site.webmanifest?v=hello world" />
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body class="text-light" style="padding-top: 3.7rem">
-    <nav
-      class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom"
+---
+layout: default
+title: Socials
+description: Oratot's social media accounts, including YouTube, Reddit, Twitch, and GitHub.
+keywords: Oratot, Paride, Italian, video games, tech, Minecraft, socials, YouTube, Reddit, Twitch, GitHub
+default_container: false
+---
+
+<div
+  class="p-4 border bg-dark d-flex flex-wrap justify-content-center justify-content-md-start"
+>
+  <h1 class="mcten mb-3">My Socials</h1>
+  <div
+    class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3"
+  >
+    <a
+      href="https://www.youtube.com/@ItzOratotITA?sub_confirmation=1"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-decoration-none"
     >
-      <div class="container-fluid">
-        <a class="navbar-brand text-primary mcten" href="/">Oratot.com</a>
-        <button
-          class="navbar-toggler rounded-0"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                General Utils
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-dark bg-dark rounded-0 border"
-              >
-                <li>
-                  <a class="dropdown-item" href="/utils/qr.html"
-                    >QR Code Generator</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="/utils/charts.html"
-                    >Chart Generator</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Minecraft Utils
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-dark bg-dark rounded-0 border"
-              >
-                <li>
-                  <a class="dropdown-item" href="/utils/nether.html"
-                    >Nether Coordinates</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/socials.html">Socials</a>
-            </li>
-          </ul>
+      <div
+        class="card border rounded-0 bg-dark text-center social-card"
+        style="width: 10rem; height: 13rem"
+      >
+        <img
+          src="/assets/yt-logo.svg"
+          class="card-img-top p-3"
+          alt="YouTube logo"
+        />
+        <div class="card-body">
+          <p class="card-title h5 text-danger">YouTube</p>
         </div>
       </div>
-    </nav>
-    <div class="container my-4">
-      <div class="row">
-        <div class="col-12 col-md-4">
-          <div
-            class="border bg-dark position-relative d-flex justify-content-center skin-viewer-box"
-          >
-            <canvas id="skin_container"></canvas>
-            <a
-              href="/assets/skin_definitiva.png"
-              download="skin_definitiva.png"
-              class="btn btn-md btn-dark border rounded-0 position-absolute top-0 start-0 m-2"
-              aria-label="Download Minecraft skin"
-            >
-              ⬇
-            </a>
-            <button
-              id="toggleSkinAnimation"
-              class="btn btn-md btn-dark border rounded-0 position-absolute top-0 end-0 m-2"
-              type="button"
-              aria-label="Toggle animation"
-            >
-              ▶
-            </button>
-          </div>
-        </div>
+    </a>
 
-        <div class="col-12 col-md-8">
-          <div
-            class="p-4 border bg-dark d-flex flex-wrap justify-content-center justify-content-md-start"
-          >
-            <h1 class="mcten mb-3">My Socials</h1>
-            <div
-              class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3"
-            >
-              <a
-                href="https://www.youtube.com/@ItzOratotITA?sub_confirmation=1"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-decoration-none"
-              >
-                <div
-                  class="card border rounded-0 bg-dark text-center social-card"
-                  style="width: 10rem; height: 13rem"
-                >
-                  <img
-                    src="/assets/yt-logo.svg"
-                    class="card-img-top p-3"
-                    alt="YouTube logo"
-                  />
-                  <div class="card-body">
-                    <p class="card-title h5 text-danger">YouTube</p>
-                  </div>
-                </div>
-              </a>
-
-              <a
-                href="https://www.reddit.com/user/Which-Taro5092/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-decoration-none"
-              >
-                <div
-                  class="card border rounded-0 bg-dark text-center social-card"
-                  style="width: 10rem; height: 13rem"
-                >
-                  <img
-                    src="/assets/reddit-logo.svg"
-                    class="card-img-top p-3"
-                    alt="Reddit logo"
-                  />
-                  <div class="card-body">
-                    <p class="card-title h5" style="color: #ff4500">Reddit</p>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="https://www.twitch.tv/oratot"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-decoration-none"
-              >
-                <div
-                  class="card border rounded-0 bg-dark text-center social-card"
-                  style="width: 10rem; height: 13rem"
-                >
-                  <img
-                    src="/assets/twitch-logo.svg"
-                    class="card-img-top p-3"
-                    alt="Twitch logo"
-                  />
-                  <div class="card-body">
-                    <p class="card-title h5" style="color: #9146ff">Twitch</p>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="https://github.com/itzoratotita"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-decoration-none"
-              >
-                <div
-                  class="card border rounded-0 bg-dark text-center social-card"
-                  style="width: 10rem; height: 13rem"
-                >
-                  <img
-                    src="/assets/github-logo.svg"
-                    class="card-img-top p-3"
-                    alt="GitHub logo"
-                  />
-                  <div class="card-body">
-                    <p class="card-title h5 text-white">GitHub</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+    <a
+      href="https://www.reddit.com/user/Which-Taro5092/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-decoration-none"
+    >
+      <div
+        class="card border rounded-0 bg-dark text-center social-card"
+        style="width: 10rem; height: 13rem"
+      >
+        <img
+          src="/assets/reddit-logo.svg"
+          class="card-img-top p-3"
+          alt="Reddit logo"
+        />
+        <div class="card-body">
+          <p class="card-title h5" style="color: #ff4500">Reddit</p>
         </div>
       </div>
-    </div>
-
-    <script type="module" src="/js/skinview.js"></script>
-    <script src="/js/background.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+    </a>
+    <a
+      href="https://www.twitch.tv/oratot"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-decoration-none"
+    >
+      <div
+        class="card border rounded-0 bg-dark text-center social-card"
+        style="width: 10rem; height: 13rem"
+      >
+        <img
+          src="/assets/twitch-logo.svg"
+          class="card-img-top p-3"
+          alt="Twitch logo"
+        />
+        <div class="card-body">
+          <p class="card-title h5" style="color: #9146ff">Twitch</p>
+        </div>
+      </div>
+    </a>
+    <a
+      href="https://github.com/itzoratotita"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-decoration-none"
+    >
+      <div
+        class="card border rounded-0 bg-dark text-center social-card"
+        style="width: 10rem; height: 13rem"
+      >
+        <img
+          src="/assets/github-logo.svg"
+          class="card-img-top p-3"
+          alt="GitHub logo"
+        />
+        <div class="card-body">
+          <p class="card-title h5 text-white">GitHub</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
