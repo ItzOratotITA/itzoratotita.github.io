@@ -26,6 +26,7 @@ resizeObserver.observe(skinViewerBox);
 window.addEventListener("resize", resizeSkinViewer);
 skinViewer.controls.enableRotate = true;
 skinViewer.controls.enableZoom = true;
+skinViewer.controls.enablePan = true;
 let skinAnimationPlaying = false;
 
 const animationButton = document.getElementById("toggleSkinAnimation");
