@@ -1,5 +1,5 @@
 const backgrounds = [
-  "/assets/louvre.avif",
+  "/assets/versailles.avif",
   "/assets/bridge_view.avif",
   "/assets/castle_view.avif",
   "/assets/mar_grande_view.avif",
