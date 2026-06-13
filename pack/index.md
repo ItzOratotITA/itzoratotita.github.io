@@ -43,7 +43,7 @@ This resource pack works with:
 
 After downloading the texture pack, go in Minecraft > Options > Resource Packs > Open Pack Folder. An instance of File Explorer should pop up on the screen, opened on your Minecraft folder.
 
-Then go back to your browser, click the download icon (usually on the top-right corner of the screen) and click the folder icon next to `Oratot PVP.zip`<br>
+Then go back to your browser, click the download icon (usually on the top-right corner of the screen) and click the folder icon next to `Oratot PVP.zip`.<br>
 
 Another instance of File Explorer should pop up.<br>
 Drag `Oratot PVP.zip` from the instance of File Explorer opened in your downloads folder to the center of the one opened on your Minecraft folder. Go back to Minecraft, and the texture pack should show up.
