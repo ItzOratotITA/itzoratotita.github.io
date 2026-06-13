@@ -75,6 +75,6 @@ body::before {
 }
 
 img {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: auto;
+  max-width: auto;
 }
