@@ -10,6 +10,15 @@ author:
     - https://www.reddit.com/user/Which-Taro5092/
     - https://www.twitch.tv/oratot
     - https://github.com/itzoratotita
+    - https://discord.gg/jMVgWvqTe
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    formatter: HTML
 
 plugins:
   - jekyll-seo-tag
