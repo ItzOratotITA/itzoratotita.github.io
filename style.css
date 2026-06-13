@@ -73,3 +73,8 @@ body::before {
 .mcten {
   font-family: "Minecraft Ten", sans-serif;
 }
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
