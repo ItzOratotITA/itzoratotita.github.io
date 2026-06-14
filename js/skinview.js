@@ -11,12 +11,6 @@ const skinViewer = new skinview3d.SkinViewer({
   cape: "/assets/eye-blossom-cape.png",
 });
 
-skinViewer.camera.position.x = -20;
-skinViewer.camera.position.y = 20;
-skinViewer.camera.position.z = 32;
-
-skinViewer.controls.update();
-
 function resizeSkinViewer() {
   skinViewer.setSize(skinViewerBox.clientWidth, skinViewerBox.clientHeight);
 }
@@ -40,13 +34,6 @@ const animationButton = document.getElementById("toggleSkinAnimation");
 function startSkinAnimation() {
   skinViewer.animation = new skinview3d.WalkingAnimation();
   skinViewer.animation.speed = 0.8;
-  skinViewer.onRender(() => {
-    if (skinViewer.animation) {
-      skinViewer.playerObject.skin.head.rotation.y = 0;
-      skinViewer.playerObject.skin.head.rotation.x = 0;
-      skinViewer.playerObject.skin.head.rotation.z = 0;
-    }
-  });
   animationButton.textContent = "⏸";
   skinAnimationPlaying = true;
 }
