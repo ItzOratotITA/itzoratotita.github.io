@@ -61,7 +61,7 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="/"
           ><img
-            src="/assets/summer_logo.png"
+            src="/assets/summer_logo.avif?v={{ site.github.build_revision }}"
             alt="Logo"
             style="height: 1em; width: auto"
         /></a>
@@ -171,7 +171,13 @@
       type="module"
       src="/js/skinview.js?v={{ site.github.build_revision }}"
     ></script>
-    <script src="/js/background.js?v={{ site.github.build_revision }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      defer
+      src="/js/background.js?v={{ site.github.build_revision }}"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    ></script>
   </body>
 </html>
