@@ -4,13 +4,13 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "/assets/web-app-manifest-192x192.png?v=fix",
+      "src": "/assets/web-app-manifest-192x192.png?v={{ site.github.build_revision }}",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/web-app-manifest-512x512.png?v=fix",
+      "src": "/assets/web-app-manifest-512x512.png?v={{ site.github.build_revision }}",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
