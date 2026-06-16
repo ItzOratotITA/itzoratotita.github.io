@@ -51,7 +51,7 @@ body {
   padding: 0;
 }
 
-.social-card {
+.card {
   transition:
     background-color 0.15s ease,
     border-color 0.15s ease,
@@ -60,13 +60,13 @@ body {
   height: 12rem;
 }
 
-.social-card:hover {
+.card:hover {
   background-color: #363d44 !important;
   transform: translateY(-0.15rem);
 }
 
 @media (max-width: 384px) {
-  .social-card {
+  .card {
     width: 8rem;
     height: 11rem;
   }

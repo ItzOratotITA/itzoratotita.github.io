@@ -1,16 +1,22 @@
 title: oratot.com
-description: "Personal website of an Italian guy who likes video games. Hosting pre-existing JavaScript utilities and more cool stuff!"
+description: "Personal website of Paride, an Italian guy who likes video games. Hosting pre-existing JavaScript utilities and more cool stuff!"
 url: "https://www.oratot.com"
+tagline: "Personal website of Paride, hosting pre-existing JavaScript utilities and more cool stuff."
 
 author:
+  name: Paride Totaro
+  url: "https://www.oratot.com"
+
+social:
   name: Oratot
-  github: itzoratotita
   links:
     - https://www.youtube.com/@ItzOratotITA
     - https://www.reddit.com/user/Which-Taro5092/
     - https://www.twitch.tv/oratot
     - https://github.com/itzoratotita
-    - https://discord.gg/jMVgWvqTe
+    - https://www.oratot.com/discord
+
+logo: /assets/blueprint_logo.png
 
 markdown: kramdown
 highlighter: rouge
@@ -22,6 +28,7 @@ kramdown:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 exclude:
   - .github
