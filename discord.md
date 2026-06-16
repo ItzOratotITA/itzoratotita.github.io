@@ -2,7 +2,7 @@
 layout: default
 title: Discord Server
 redirect: "https://discord.gg/v7S24scrH"
-custom_favicon: "/assets/discord.svg"
+custom_favicon: "/assets/discord-logo.svg"
 ---
 
 # Redirecting to Discord server...

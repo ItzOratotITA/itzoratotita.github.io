@@ -5,7 +5,7 @@ description: Modern Minecraft PVP Resource Pack, also available on Modrinth.
 keywords: Minecraft, PVP, Combat, Resource Pack, Minecraft PVP
 ---
 
-<img src="/assets/oratot_pvp.png" alt="Oratot's PVP Logo">
+<img src="/assets/oratot_pvp.avif" alt="Oratot's PVP Logo">
 
 ## Now with cool stuff!
 
