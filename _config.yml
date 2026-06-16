@@ -16,7 +16,7 @@ social:
     - https://github.com/itzoratotita
     - https://www.oratot.com/discord
 
-logo: /assets/blueprint_logo.png
+logo: /assets/blueprint_logo.avif
 
 markdown: kramdown
 highlighter: rouge
@@ -31,6 +31,7 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - .git
   - .github
   - README.md
   - LICENSE
