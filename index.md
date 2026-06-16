@@ -9,7 +9,7 @@ keywords: Oratot, Paride, Italian, video games, tech, Minecraft, utilities
 
 # CIAO!
 
-My name is Paride, but I go under the nickname Oratot. I am an Italian guy who
+My name is Paride, but I go under the nickname Oratot. I am an Italian guy (straight) who
 likes video games and tech. While yes, I admit, my shorts on YouTube are very
 cringe, an actually good long-form video is coming soon.
 
