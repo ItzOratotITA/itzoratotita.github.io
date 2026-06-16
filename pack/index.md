@@ -11,6 +11,8 @@ keywords: Minecraft, PVP, Combat, Resource Pack, Minecraft PVP
 
 ## Now with cool stuff!
 
+[Go to Downloads](#downloads)
+
 This resource pack improves your pvp experience by increasing visibility, along with some little funny textures, some recolors and also more useful cool stuff from Vanilla Tweaks. A lot of vanilla tweaks. This texture pack is a mix of different texture packs made by other people and some features I made myself.
 This resource pack works with:
 
@@ -48,7 +50,7 @@ Then go back to your browser, click the download icon (usually on the top-right 
 Another instance of File Explorer should pop up.<br>
 Drag `Oratot PVP.zip` from the instance of File Explorer opened in your downloads folder to the center of the one opened on your Minecraft folder. Go back to Minecraft, and the texture pack should show up.
 
-<div class="d-flex gap-2">
+<div class="d-flex gap-2" id="downloads">
 <a href="/pack/Oratot PVP.zip" download="Oratot PVP.zip" class="btn btn-primary border rounded-0">Download Latest Version</a>
 <a href="https://modrinth.com/resourcepack/oratotpvp" class="btn btn-success border rounded-0">Download from Modrinth</a>
 </div>
