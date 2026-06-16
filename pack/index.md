@@ -7,8 +7,6 @@ keywords: Minecraft, PVP, Combat, Resource Pack, Minecraft PVP
 
 <img src="/assets/oratot_pvp.png" alt="Oratot's PVP Logo">
 
-{:.mcten}
-
 ## Now with cool stuff!
 
 [Go to Downloads](#downloads)
@@ -20,8 +18,6 @@ This resource pack works with:
 - [Respackopts](https://modrinth.com/mod/respackopts) (from version 2.1 and above)
 
 **DISCLAIMER: Use of [NoTextureRotations](https://modrinth.com/mod/notexturerotations/versions) is recommended because of the use of [variated blocks](https://vanillatweaks.net/picker/resource-packs/).**
-
-{:.mcten}
 
 ## Features
 
@@ -38,8 +34,6 @@ This resource pack works with:
 - **Dark GUI** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
 - **Visible Wither Hearts** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
 - **More cool stuff!** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
-
-{:.mcten}
 
 ## Installation Guide
 
