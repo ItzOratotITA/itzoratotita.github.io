@@ -5,11 +5,11 @@ description: Landing page of oratot.com, a personal website by Paride, an Italia
 keywords: Oratot, Paride, Italian, video games, tech, Minecraft, utilities
 ---
 
-![Pride Logo](/assets/pride_logo.png)
+![Summer Logo](/assets/summer_logo.png)
 
 # CIAO!
 
-My name is Paride, but I go under the nickname Oratot. I am an Italian guy (straight) who
+My name is Paride, but I go under the nickname Oratot. I am an Italian guy who
 likes video games and tech. While yes, I admit, my shorts on YouTube are very
 cringe, an actually good long-form video is coming soon.
 
