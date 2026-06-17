@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% seo %} {% if page.redirect %} {% if page.keywords %}
+    {% seo %} {% if page.keywords %}
     <meta name="keywords" content="{{ page.keywords }}" />
-    {% endif %}
+    {% endif %}{% if page.redirect %}
     <meta http-equiv="refresh" content="0; url={{ page.redirect }}" />
     {% endif %}
     <link
