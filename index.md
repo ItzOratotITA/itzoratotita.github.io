@@ -1,27 +1,17 @@
 ---
 layout: default
-title: Home
-description: Landing page of oratot.com, a personal website by Paride, an Italian guy who likes video games and tech.
+title: No-BS Utilities and Personal Projects!
+description: Landing page of oratot.com, a personal website by Paride, an Italian guy who likes video games and tech. This website hosts cool utilities with no bloat.
 keywords: Oratot, Paride, Italian, video games, tech, Minecraft, utilities
 ---
 
-![Summer Logo](/assets/summer_logo.avif)
+![The Summer Variant of the Website's Logo](/assets/summer_logo.avif)
 
 # CIAO!
 
-My name is Paride, but I go under the nickname Oratot. I am an Italian guy who
-likes video games and tech. While yes, I admit, my shorts on YouTube are very
-cringe, an actually good long-form video is coming soon.
+Welcome to oratot.com, where you can find cool, free utilities and personal projects with no BS!
+This is the personal site of [Paride Totaro, known online as Oratot](/about).
 
-## What is this site even for?
+**My nickname is my surname in reverse, not a typo for "orator"!**
 
-Just whatever goes on in my mind. For now I am just hosting pre-existing
-JavaScript utilities such as Chart.js and npm/qrcode.
-
-## My Specs
-
-- CPU: AMD Ryzen 7 7700X
-- GPU: Nvidia GeForce RTX 5060Ti
-- RAM: 32 GB DDR5-6000
-- Storage: 2 TB NVMe SSD
-- OS: CachyOS and Windows 11 Pro (Dual Boot)
+To support me, consider subscribing to [my YouTube channel](https://www.youtube.com/@ItzOratotITA?sub_confirmation=1)!
