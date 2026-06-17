@@ -125,6 +125,9 @@
               </ul>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/socials">Socials</a>
             </li>
           </ul>
@@ -157,13 +160,13 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-8">
+        <main class="col-12 col-md-8">
           {% unless page.custom_container %}
           <div class="p-4 border bg-dark">
             {% endunless %}{{ content }} {% unless page.custom_container %}
           </div>
           {% endunless %}
-        </div>
+        </main>
       </div>
     </div>
     {% if page.custom_scripts %} {{ page.custom_scripts }} {% endif %}
