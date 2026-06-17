@@ -39,12 +39,12 @@ This resource pack works with:
 
 After downloading the texture pack, go in Minecraft > Options > Resource Packs > Open Pack Folder. An instance of File Explorer should pop up on the screen, opened on your Minecraft folder.
 
-Then go back to your browser, click the download icon (usually on the top-right corner of the screen) and click the folder icon next to `Oratot PVP.zip`.<br>
+Then go back to your browser, click the download icon (usually on the top-right corner of the screen) and click the folder icon next to `Oratot's PVP.zip` (or whatever the file name is, depending on the version you downloaded).<br>
 
 Another instance of File Explorer should pop up.<br>
-Drag `Oratot PVP.zip` from the instance of File Explorer opened in your downloads folder to the center of the one opened on your Minecraft folder. Go back to Minecraft, and the texture pack should show up.
+Drag `Oratot's PVP.zip` from the instance of File Explorer opened in your downloads folder to the center of the one opened on your Minecraft folder. Go back to Minecraft, and the texture pack should show up.
 
 <div class="d-flex gap-2" id="downloads">
-<a href="/pack/Oratot PVP.zip" download="Oratot PVP.zip" class="btn btn-primary border rounded-0">Download Latest Version</a>
-<a href="https://modrinth.com/resourcepack/oratotpvp" class="btn btn-success border rounded-0">Download from Modrinth</a>
+<a href="/pack/Oratot's PVP v2.2.1.zip" download="Oratot's PVP v2.2.1.zip'" class="btn btn-primary border rounded-0">Download v2.2.1 (Latest)<br><span class="btn_subtitle">Minecraft 26.1x</span></a>
+<a href="https://modrinth.com/resourcepack/oratotpvp" class="btn btn-success border rounded-0">Download from Modrinth<br><span class="btn_subtitle">Other Versions</span></a>
 </div>

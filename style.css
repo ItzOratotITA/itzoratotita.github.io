@@ -51,6 +51,11 @@ body {
   padding: 0;
 }
 
+.btn_subtitle {
+  font-size: 0.9em;
+  font-style: italic;
+}
+
 .card {
   transition:
     background-color 0.15s ease,
