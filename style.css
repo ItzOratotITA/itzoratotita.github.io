@@ -67,7 +67,7 @@ body {
     border-color 0.15s ease,
     transform 0.15s ease;
   width: 9rem;
-  height: 12rem;
+  min-height: 12rem;
 }
 
 .card:hover {
@@ -78,7 +78,7 @@ body {
 @media (max-width: 384px) {
   .card {
     width: 8rem;
-    height: 11rem;
+    min-height: 11rem;
   }
 }
 
