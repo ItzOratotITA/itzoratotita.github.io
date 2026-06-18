@@ -7,7 +7,7 @@ const skinViewer = new skinview3d.SkinViewer({
   canvas,
   width: skinViewerBox.clientWidth,
   height: skinViewerBox.clientHeight,
-  skin: "/assets/skin_definitiva.png",
+  skin: "/assets/ItzOratotITA.png",
   cape: "/assets/eye-blossom-cape.png",
 });
 
