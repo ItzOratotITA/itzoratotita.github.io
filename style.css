@@ -38,6 +38,11 @@ body {
   }
 }
 
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
 .skin-viewer-box {
   height: 28rem;
   overflow: hidden;
