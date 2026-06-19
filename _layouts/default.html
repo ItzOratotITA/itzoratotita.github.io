@@ -96,7 +96,7 @@
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="/utils/charts"
+                  <a class="dropdown-item" href="/utils/charts/"
                     >Chart Generator</a
                   >
                 </li>
@@ -174,6 +174,9 @@
       type="module"
       src="/js/skinview.js?v={{ site.github.build_revision }}"
     ></script>
+    {% if page.hidemein %}
+    <script defer src="/js/hide.js?v={{ site.github.build_revision }}"></script>
+    {% endif %}
     <script
       defer
       src="/js/background.js?v={{ site.github.build_revision }}"
