@@ -1,0 +1,179 @@
+---
+layout: default
+title: Chart Generator
+description: No-BS Free Chart generator via ApexCharts, with SVG, PNG and CSV exporting.
+keywords: chart, generator, ApexCharts, SVG, JavaScript, utility
+hidemein: true
+custom_scripts: |
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script>
+    const chartType = document.getElementById("chartType");
+    const chartLabels = document.getElementById("chartLabels");
+    const chartValues = document.getElementById("chartValues");
+    const generateChart = document.getElementById("generateChart");
+    const chartContainer = document.getElementById("chartContainer");
+
+    let currentChart;
+
+    function createChart() {
+      const labels = chartLabels.value
+        .split(",")
+        .map((label) => label.trim())
+        .filter((label) => label !== "");
+    
+      const values = chartValues.value
+        .split(",")
+        .map((value) => Number(value.trim()));
+    
+      if (labels.length === 0 || values.length === 0) {
+        alert("Insert at least one label and one value.");
+        return;
+      }
+    
+      if (labels.length !== values.length) {
+        alert("The number of labels must match the number of values.");
+        return;
+      }
+    
+      if (values.some((value) => Number.isNaN(value))) {
+        alert("Values must be numbers.");
+        return;
+      }
+    
+      if (currentChart) {
+        currentChart.destroy();
+      }
+    
+      const type = chartType.value;
+      const isPie = type === "pie";
+    
+      const options = {
+        chart: {
+          type: type,
+          height: 400,
+          toolbar: {
+            show: true,
+            tools: {
+              download: true,
+              selection: false,
+              zoom: false,
+              zoomin: false,
+              zoomout: false,
+              pan: false,
+              reset: false,
+            },
+            export: {
+              svg: {
+                filename: "chart",
+              },
+              png: {
+                filename: "chart",
+              },
+              csv: {
+                filename: "chart",
+              },
+            },
+          },
+        },
+      
+        series: isPie
+          ? values
+          : [
+              {
+                name: "Values",
+                data: values,
+              },
+            ],
+            
+        labels: isPie ? labels : [],
+            
+        xaxis: {
+          categories: isPie ? [] : labels,
+        },
+      
+        legend: {
+          show: isPie,
+        },
+      
+        dataLabels: {
+          enabled: isPie,
+        },
+      
+        stroke: {
+          curve: "straight",
+        },
+      };
+    
+      currentChart = new ApexCharts(chartContainer, options);
+      currentChart.render();
+    }
+
+    generateChart.addEventListener("click", createChart);
+
+    chartLabels.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        createChart();
+      }
+    });
+
+    chartValues.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        createChart();
+      }
+    });
+
+    createChart();
+  </script>
+---
+
+<h1>Chart Generator</h1>
+<span
+  class="badge rounded-0 border p-3 text-dark text-bg-warning fs-6 text-wrap text-start mb-2"
+  id="hideMe"
+  >Warning: Downloaded SVGs often only display correctly in web browsers or apps
+  that use frameworks such as Electron or Tauri.<br />
+  <a href="/utils/charts/svg_disclaimer">Learn more</a>
+  <a href="#" id="hideMeButton">Hide</a></span
+><br />
+<p>
+  Line, bar and pie chart generator via ApexCharts.<br /><a
+    href="/utils/charts/alt"
+    >Switch to Chart.js version</a
+  >
+</p>
+
+<label for="chartType" class="form-label">Chart type</label>
+<select id="chartType" class="form-select rounded-0 mb-3">
+  <option value="bar">Bar chart</option>
+  <option value="pie">Pie chart</option>
+  <option value="line">Line chart</option>
+</select>
+
+<label for="chartLabels" class="form-label">Labels</label>
+<input
+  type="text"
+  id="chartLabels"
+  class="form-control rounded-0 mb-3"
+  placeholder="Example: Apples, Bananas, Oranges"
+  value="Apples, Bananas, Oranges"
+/>
+
+<label for="chartValues" class="form-label">Values</label>
+<input
+  type="text"
+  id="chartValues"
+  class="form-control rounded-0 mb-3"
+  placeholder="Example: 10, 20, 15"
+  value="10, 20, 15"
+/>
+
+<button id="generateChart" class="btn btn-success border rounded-0 mb-3">
+  Generate Chart
+</button>
+
+<div class="bg-white border p-3 text-dark">
+  <div id="chartContainer" aria-label="Generated chart"></div>
+</div>
+<p class="small mt-2 mb-0">
+  Use the menu in the top-right corner of the chart to download SVG, PNG or CSV.
+</p>
