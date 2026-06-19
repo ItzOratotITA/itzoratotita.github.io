@@ -30,7 +30,7 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
     >
       <div class="card border rounded-0 bg-dark text-center card">
         <img
-          src="/assets/qr.png"
+          src="/assets/qr.png?v=2"
           class="card-img-top p-3 pixel-art"
           alt="QR Code Pixel Art"
         />
@@ -48,7 +48,7 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
     >
       <div class="card border rounded-0 bg-dark text-center card">
         <img
-          src="/assets/chart.png"
+          src="/assets/chart.png?v=2"
           class="card-img-top p-3 pixel-art"
           alt="Line Chart Pixel Art"
         />
@@ -66,7 +66,7 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
     >
       <div class="card border rounded-0 bg-dark text-center card">
         <img
-          src="/assets/nether_portal.png"
+          src="/assets/nether_portal.png?v=2"
           class="card-img-top p-3 pixel-art"
           alt="Minecraft Nether Portal"
         />
