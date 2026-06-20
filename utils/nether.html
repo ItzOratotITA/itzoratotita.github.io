@@ -56,7 +56,7 @@ custom_scripts: |
 <div class="calculator">
   <label class="form-label">
     Mode:
-    <select id="direction" class="form-select rounded-0">
+    <select id="direction" class="form-select">
       <option value="overworld-to-nether">Overworld to Nether</option>
       <option value="nether-to-overworld">Nether to Overworld</option>
     </select>
@@ -75,14 +75,12 @@ custom_scripts: |
   </div>
 
   <button
-    class="btn btn-success border rounded-0"
+    class="btn btn-success border"
     type="button"
     onclick="convertCoords()"
   >
     Convert
   </button>
 
-  <div class="result-box mt-2 bg-dark" id="result">
-    Result will appear here.
-  </div>
+  <div class="result-box mt-2" id="result">Result will appear here.</div>
 </div>

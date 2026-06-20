@@ -45,6 +45,6 @@ Another instance of File Explorer should pop up.<br>
 Drag `Oratot's PVP.zip` from the instance of File Explorer opened in your downloads folder to the center of the one opened on your Minecraft folder. Go back to Minecraft, and the texture pack should show up.
 
 <div class="d-flex flex-wrap gap-2" id="downloads">
-<a href="/pack/Oratot's PVP v2.2.1.zip" download="Oratot's PVP v2.2.1.zip" class="btn btn-primary border rounded-0">Download v2.2.1 (Latest)<br><span class="btn_subtitle">Minecraft 26.1x</span></a>
-<a href="https://modrinth.com/resourcepack/oratotpvp" class="btn btn-success border rounded-0">Download from Modrinth<br><span class="btn_subtitle">Other Versions</span></a>
+<a href="/pack/Oratot's PVP v2.2.1.zip" download="Oratot's PVP v2.2.1.zip" class="btn btn-primary border">Download v2.2.1 (Latest)<br><span class="btn_subtitle">Minecraft 26.1x</span></a>
+<a href="https://modrinth.com/resourcepack/oratotpvp" rel="noopener" class="btn btn-success border">Download from Modrinth<br><span class="btn_subtitle">Other Versions</span></a>
 </div>
