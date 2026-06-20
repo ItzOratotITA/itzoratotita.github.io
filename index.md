@@ -23,12 +23,10 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
   >
     <a
       href="/utils/qr"
-      target="_blank"
-      rel="noopener noreferrer"
       class="text-decoration-none"
       aria-label="Link to QR Code Generator"
     >
-      <div class="card border rounded-0 bg-dark text-center card">
+      <div class="card border rounded-4 bg-darker text-center card">
         <img
           src="/assets/qr.png?v=2"
           class="card-img-top p-3 pixel-art"
@@ -41,12 +39,10 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
     </a>
     <a
       href="/utils/charts"
-      target="_blank"
-      rel="noopener noreferrer"
       class="text-decoration-none"
       aria-label="Link to Chart Generator"
     >
-      <div class="card border rounded-0 bg-dark text-center card">
+      <div class="card border rounded-4 bg-darker text-center card">
         <img
           src="/assets/chart.png?v=2"
           class="card-img-top p-3 pixel-art"
@@ -59,12 +55,10 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
     </a>
     <a
       href="/utils/nether"
-      target="_blank"
-      rel="noopener noreferrer"
       class="text-decoration-none"
     aria-label="Link to Nether Coordinate Converter"
     >
-      <div class="card border rounded-0 bg-dark text-center card">
+      <div class="card border rounded-4 bg-darker text-center card">
         <img
           src="/assets/nether_portal.png?v=2"
           class="card-img-top p-3 pixel-art"
@@ -77,11 +71,9 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
     </a>
     <a
       href="/pack"
-      target="_blank"
-      rel="noopener noreferrer"
       class="text-decoration-none"
     >
-      <div class="card border rounded-0 bg-dark text-center card">
+      <div class="card border rounded-4 bg-darker text-center card">
         <img
           src="/assets/favicon.svg"
           class="card-img-top p-3 pixel-art"

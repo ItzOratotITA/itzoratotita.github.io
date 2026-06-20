@@ -30,20 +30,29 @@ skinViewer.controls.enablePan = true;
 let skinAnimationPlaying = false;
 
 const animationButton = document.getElementById("toggleSkinAnimation");
+const animationButtonIcon = document.getElementById("skinAnimationIcon");
 
 function startSkinAnimation() {
   skinViewer.animation = new skinview3d.WalkingAnimation();
   skinViewer.animation.speed = 0.8;
-  animationButton.textContent = "⏸";
+
+  animationButtonIcon.src = "/assets/pause.svg";
+  animationButtonIcon.alt = "⏸";
+  animationButton.setAttribute("aria-label", "Stop animation");
+
   skinAnimationPlaying = true;
 }
 
 function stopSkinAnimation() {
   skinViewer.animation = null;
 
-  animationButton.textContent = "▶";
+  animationButtonIcon.src = "/assets/play.svg";
+  animationButtonIcon.alt = "▶";
+  animationButton.setAttribute("aria-label", "Start animation");
+
   skinAnimationPlaying = false;
 }
+
 animationButton.addEventListener("click", () => {
   if (skinAnimationPlaying) {
     stopSkinAnimation();

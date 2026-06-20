@@ -20,7 +20,6 @@ Browsers and WebViews have no problem displaying these types of SVG, but almost 
 - The GIMP
 
 will fail to display the SVG correctly.<br>
-
 Note that every other way of exporting the generated chart **works correctly as of now**.
 
-<a class="btn btn-primary border rounded-0" href="/utils/charts/">Go Back</a>
+<a class="btn btn-primary border " href="/utils/charts/">Go Back</a>

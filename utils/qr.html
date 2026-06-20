@@ -47,22 +47,20 @@ custom_scripts: |
 <input
   type="text"
   id="qrText"
-  class="form-control mb-3 rounded-0"
+  class="form-control mb-3"
   placeholder="Write a link or some text..."
   value="https://www.youtube.com/watch?v=xMHJGd3wwZk"
 />
 
-<button id="generateQr" class="btn btn-success rounded-0 border mb-3">
-  Generate QR
-</button>
+<button id="generateQr" class="btn btn-success border mb-3">Generate QR</button>
 
-<div class="bg-white p-3 text-center">
+<div class="bg-white p-3 text-center rounded">
   <canvas id="qrCanvas"></canvas>
 </div>
 
 <a
   id="downloadQr"
-  class="btn btn-primary mt-3 d-none rounded-0 border"
+  class="btn btn-primary mt-3 d-none border"
   download="qrcode.png"
 >
   Download PNG

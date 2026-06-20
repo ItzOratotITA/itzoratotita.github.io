@@ -13,6 +13,15 @@
   src: url("/assets/MinecraftTen.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Minecraft Five";
+  src: url("/assets/minecraft-five-bold.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 html,
@@ -25,7 +34,17 @@ body {
   position: relative;
   overflow: hidden;
   overflow-y: scroll;
-  font-family: "Minecraft Seven", sans-serif;
+  font-family: "Minecraft Seven", sans-serif, monospace;
+  font-synthesis: none;
+}
+
+nav {
+  font-family: "Minecraft Five", sans-serif;
+  font-size: 0.6em;
+}
+
+.dropdown-item {
+  font-family: "Minecraft Seven";
 }
 
 body {
@@ -33,14 +52,27 @@ body {
 }
 
 @media (min-width: 768px) {
+  .navbar > .container-fluid {
+    position: relative;
+  }
+
+  #navbarSupportedContent {
+    position: absolute;
+    left: 50%;
+    width: max-content;
+    transform: translateX(-50%);
+  }
   body {
     padding-top: 80px;
   }
 }
 
+.bg-darker {
+  background-color: #16171d !important;
+}
+
 .pixel-art {
   image-rendering: pixelated;
-  image-rendering: crisp-edges;
 }
 
 .skin-viewer-box {
@@ -68,6 +100,10 @@ body {
     transform 0.15s ease;
   width: 9rem;
   min-height: 12rem;
+}
+
+.skinbtn:hover {
+  background-color: #363d44 !important;
 }
 
 .card:hover {

@@ -103,7 +103,7 @@ custom_scripts: |
   >
 </p>
 <label for="chartType" class="form-label">Chart type</label>
-<select id="chartType" class="form-select rounded-0 mb-3">
+<select id="chartType" class="form-select mb-3">
   <option value="bar">Bar chart</option>
   <option value="pie">Pie chart</option>
   <option value="line">Line chart</option>
@@ -113,7 +113,7 @@ custom_scripts: |
 <input
   type="text"
   id="chartLabels"
-  class="form-control rounded-0 mb-3"
+  class="form-control mb-3"
   placeholder="Example: Apples, Bananas, Oranges"
   value="Apples, Bananas, Oranges"
 />
@@ -122,21 +122,21 @@ custom_scripts: |
 <input
   type="text"
   id="chartValues"
-  class="form-control rounded-0 mb-3"
+  class="form-control mb-3"
   placeholder="Example: 10, 20, 15"
   value="10, 20, 15"
 />
 
-<button id="generateChart" class="btn btn-success border rounded-0 mb-3">
+<button id="generateChart" class="btn btn-success border mb-3">
   Generate Chart
 </button>
 
-<div class="bg-white border p-3">
+<div class="bg-white border p-3 rounded">
   <canvas id="chartCanvas"></canvas>
 </div>
 <a
   id="downloadChart"
-  class="btn btn-primary border rounded-0 mt-3 d-none"
+  class="btn btn-primary border mt-3 d-none"
   download="chart.png"
 >
   Download PNG
