@@ -1,0 +1,187 @@
+---
+layout: default
+title: QR Code Generator
+description: Free no-BS static QR Code Generator via qrcode-with-logos, a JavaScript library for generating styled QR codes.
+keywords: QR code, generator, qrcode-with-logos, logo, JavaScript, utility
+custom_scripts: |
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-with-logos@1.2.1/lib/qrcode-with-logos.min.js"></script>
+  <script>
+   const input = document.getElementById("qrText");
+   const logoInput = document.getElementById("qrLogo");
+   const dotColor = document.getElementById("dotColor");
+   const dotType = document.getElementById("dotType");
+   const cornerColor = document.getElementById("cornerColor");
+   const cornerType = document.getElementById("cornerType");
+   const button = document.getElementById("generateQr");
+   const canvas = document.getElementById("qrCanvas");
+   const download = document.getElementById("downloadQr");
+
+   function readFileAsDataUrl(file) {
+     return new Promise((resolve, reject) => {
+       const reader = new FileReader();
+       reader.addEventListener("load", () => resolve(reader.result));
+       reader.addEventListener("error", () => reject(reader.error));
+       reader.readAsDataURL(file);
+     });
+   }
+
+   async function generateQrCode() {
+     const text = input.value.trim();
+
+     if (!text) {
+       alert("Write something before generating the QR code.");
+       return;
+     }
+
+     button.disabled = true;
+
+     try {
+       const logoFile = logoInput.files[0];
+       const options = {
+         canvas,
+         content: text,
+         width: 220,
+         download: false,
+         dotsOptions: {
+           color: dotColor.value,
+           type: dotType.value,
+         },
+         cornersOptions: {
+           color: cornerColor.value,
+           type: cornerType.value,
+         },
+         nodeQrCodeOptions: {
+           margin: 2,
+           errorCorrectionLevel: logoFile ? "H" : "M",
+         },
+       };
+
+       if (logoFile) {
+         options.logo = {
+           src: await readFileAsDataUrl(logoFile),
+           bgColor: "#ffffff",
+           borderWidth: 8,
+           borderRadius: 8,
+           logoRadius: 4,
+         };
+       }
+
+       const qrCode = new QrCodeWithLogo(options);
+       await qrCode.getCanvas();
+
+       download.href = canvas.toDataURL("image/png");
+       download.classList.remove("d-none");
+     } catch (error) {
+       console.error(error);
+       alert("The QR code could not be generated.");
+     } finally {
+       button.disabled = false;
+     }
+   }
+
+   button.addEventListener("click", generateQrCode);
+
+   input.addEventListener("keydown", (event) => {
+     if (event.key === "Enter") {
+       generateQrCode();
+     }
+   });
+
+   generateQrCode();
+  </script>
+---
+
+<h1>QR Code Generator</h1>
+<p>Static styled QR Code generator via qrcode-with-logos</p>
+
+<label for="qrText" class="form-label"
+  >Text or link <span class="text-secondary">required</span></label
+>
+<input
+  type="text"
+  id="qrText"
+  class="form-control mb-3"
+  placeholder="Write a link or some text..."
+  value="https://www.youtube.com/watch?v=xMHJGd3wwZk"
+/>
+
+<div class="mb-3">
+  <label for="qrLogo" class="form-label"
+    >Logo <span class="text-secondary">optional</span></label
+  >
+  <input
+    type="file"
+    id="qrLogo"
+    class="form-control"
+    accept="image/png,image/jpeg,image/webp,image/svg+xml"
+  />The image is placed in the middle of the QR code.
+</div>
+
+<div class="row g-3 mb-3">
+  <div class="col-sm-6 col-lg-3">
+    <label for="dotColor" class="form-label">Dot color</label>
+    <input
+      type="color"
+      id="dotColor"
+      class="form-control form-control-color w-100"
+      value="#000000"
+      title="Choose dot color"
+    />
+  </div>
+
+  <div class="col-sm-6 col-lg-3">
+    <label for="dotType" class="form-label">Dot type</label>
+    <select id="dotType" class="form-select">
+      <option value="square" selected>Square</option>
+      <option value="dot">Dot</option>
+      <option value="dot-small">Small dot</option>
+      <option value="tile">Tile</option>
+      <option value="rounded">Rounded</option>
+      <option value="diamond">Diamond</option>
+      <option value="star">Star</option>
+      <option value="fluid">Fluid</option>
+      <option value="fluid-line">Fluid line</option>
+      <option value="stripe">Stripe</option>
+      <option value="stripe-row">Horizontal stripe</option>
+      <option value="stripe-column">Vertical stripe</option>
+    </select>
+  </div>
+
+  <div class="col-sm-6 col-lg-3">
+    <label for="cornerColor" class="form-label">Corner color</label>
+    <input
+      type="color"
+      id="cornerColor"
+      class="form-control form-control-color w-100"
+      value="#000000"
+      title="Choose corner color"
+    />
+  </div>
+
+  <div class="col-sm-6 col-lg-3">
+    <label for="cornerType" class="form-label">Corner type</label>
+    <select id="cornerType" class="form-select">
+      <option value="square" selected>Square</option>
+      <option value="rounded">Rounded</option>
+      <option value="circle">Circle</option>
+      <option value="rounded-circle">Rounded circle</option>
+      <option value="circle-rounded">Circle rounded</option>
+      <option value="circle-star">Circle star</option>
+      <option value="circle-diamond">Circle diamond</option>
+    </select>
+  </div>
+</div>
+
+<button id="generateQr" class="btn btn-success border mb-3">Generate QR</button>
+
+<div class="bg-white p-3 text-center rounded">
+  <canvas id="qrCanvas"></canvas>
+</div>
+
+<a
+  id="downloadQr"
+  class="btn btn-primary mt-3 d-none border"
+  download="qrcode.png"
+>
+  Download PNG
+</a>
