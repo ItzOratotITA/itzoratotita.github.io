@@ -5,7 +5,7 @@ description: Landing page of oratot.com, a personal website by Paride, an Italia
 keywords: Oratot, Paride, Italian, video games, tech, Minecraft, utilities
 ---
 
-![The Summer Variant of the Website's Logo](/assets/summer_logo.avif)
+![The Summer Variant of the Website's Logo](/assets/summer_logo_new.avif)
 
 # CIAO!
 
