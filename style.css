@@ -51,7 +51,7 @@ body {
   padding-top: 70px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar > .container-fluid {
     position: relative;
   }
@@ -62,6 +62,9 @@ body {
     width: max-content;
     transform: translateX(-50%);
   }
+}
+
+@media (min-width: 768px) {
   body {
     padding-top: 80px;
   }
