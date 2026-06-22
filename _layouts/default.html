@@ -66,17 +66,38 @@
             alt="Logo"
             style="height: 1.5em; width: auto"
         /></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="navbar-end ms-auto d-flex align-items-center gap-2">
+          <ul
+            class="navbar-logos d-none d-lg-flex align-items-center gap-2 mb-0"
+          >
+            <li>
+              <a
+                href="https://github.com/ItzOratotITA/itzoratotita.github.io"
+                aria-label="GitHub"
+              >
+                <img src="/assets/github-logo.svg" alt="" />
+              </a>
+            </li>
+
+            <li>
+              <a href="/discord" aria-label="Discord">
+                <img src="/assets/discord-logo.svg" alt="" />
+              </a>
+            </li>
+          </ul>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
@@ -126,6 +147,24 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/socials">SOCIALS</a>
+            </li>
+          </ul>
+          <ul
+            class="navbar-logos mobile-navbar-logos border-top d-flex d-lg-none align-items-center gap-2 mb-0"
+          >
+            <li>
+              <a
+                href="https://github.com/ItzOratotITA/itzoratotita.github.io"
+                aria-label="GitHub"
+              >
+                <img src="/assets/github-logo.svg" alt="" />
+              </a>
+            </li>
+
+            <li>
+              <a href="/discord" aria-label="Discord">
+                <img src="/assets/discord-logo.svg" alt="" />
+              </a>
             </li>
           </ul>
         </div>
