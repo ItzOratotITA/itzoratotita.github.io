@@ -18,70 +18,38 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
 
 # What I Have To Offer
 
-  <div
-    class="d-flex flex-wrap gap-2 my-3"
-  >
-    <a
-      href="/utils/qrcode"
-      class="text-decoration-none"
-      aria-label="Link to QR Code Generator"
-    >
-      <div class="card border rounded-4 bg-darker text-center card">
-        <img
-          src="/assets/qr.png?v=2"
-          class="card-img-top p-3 pixel-art"
-          alt="QR Code Pixel Art"
-        />
-        <div class="card-body">
-          <p class="card-title h6 text-white">QR Code Generator</p>
-        </div>
-      </div>
-    </a>
-    <a
-      href="/utils/charts"
-      class="text-decoration-none"
-      aria-label="Link to Chart Generator"
-    >
-      <div class="card border rounded-4 bg-darker text-center card">
-        <img
-          src="/assets/chart.png?v=2"
-          class="card-img-top p-3 pixel-art"
-          alt="Line Chart Pixel Art"
-        />
-        <div class="card-body">
-          <p class="card-title h6 text-white">Chart Generator</p>
-        </div>
-      </div>
-    </a>
-    <a
-      href="/utils/nether"
-      class="text-decoration-none"
-    aria-label="Link to Nether Coordinate Converter"
-    >
-      <div class="card border rounded-4 bg-darker text-center card">
-        <img
-          src="/assets/nether_portal.png?v=2"
-          class="card-img-top p-3 pixel-art"
-          alt="Minecraft Nether Portal"
-        />
-        <div class="card-body">
-          <p class="card-title h6 text-white">Nether Coords</p>
-        </div>
-      </div>
-    </a>
-    <a
-      href="/pack"
-      class="text-decoration-none"
-    >
-      <div class="card border rounded-4 bg-darker text-center card">
-        <img
-          src="/assets/favicon.svg"
-          class="card-img-top p-3 pixel-art"
-          alt="The Icon for Oratot's PVP"
-        />
-        <div class="card-body">
-          <p class="card-title h6 text-white">Oratot's<br>PVP</p>
-        </div>
-      </div>
-    </a>
-    </div>
+<div
+  class="d-flex flex-wrap gap-2 my-3"
+>
+  {% include card.html 
+    link="/utils/qr" 
+    arialabel="Link to QR Code Generator" 
+    img="/assets/qr.png?v=2" 
+    alt="QR Code Pixel Art" 
+    pixelart=true 
+    text="QR Code Generator" 
+    htype="h6" %}
+  {% include card.html 
+    link="/utils/charts" 
+    arialabel="Link to Chart Generator" 
+    img="/assets/chart.png?v=2" 
+    alt="Line Chart / Value Increasing Pixel Art" 
+    pixelart=true 
+    text="Chart Generator" 
+    htype="h6" %}
+  {% include card.html 
+    link="/utils/nether" 
+    arialabel="Link to Nether Coordinate Calculator/Converter" 
+    img="/assets/nether_portal.png?v=2" 
+    alt="Minecraft Nether Portal Texture" 
+    pixelart=true 
+    text="Nether Coords" 
+    htype="h6" %}
+  {% include card.html 
+    link="/pack" 
+    arialabel="Link to Oratot's PVP Minecraft Resource Pack" 
+    img="/assets/favicon.svg?v=2" 
+    alt="The logo for Oratot's PVP" 
+    text="Oratot's<br>PVP" 
+    htype="h6" %}
+</div>
