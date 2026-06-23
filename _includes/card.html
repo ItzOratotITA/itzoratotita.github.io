@@ -1,0 +1,28 @@
+<a
+  href="{{ include.link }}"
+  class="text-decoration-none"
+  aria-label="{{ include.arialabel }}"
+>
+  <div class="card border rounded-4 bg-darker text-center card">
+    <img
+      src="{{ include.img }}"
+      class="card-img-top p-3 {% if include.pixelart %} pixel-art {% endif %}"
+      alt="{{ include.alt }}"
+    />
+    <div class="card-body">
+      <p
+        {%
+        if
+        include.color
+        %}
+        style="color: {{ include.color }};"
+        {%
+        endif
+        %}
+        class="card-title {{ include.htype }} {% unless include.hascolor %} {% unless include.color %} text-white {% endunless %} {% endunless %} {{ include.classes }}"
+      >
+        {{ include.text }}
+      </p>
+    </div>
+  </div>
+</a>

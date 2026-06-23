@@ -13,91 +13,21 @@ custom_container: true
   <div
     class="d-flex flex-wrap justify-content-center justify-content-md-start gap-2"
   >
-    <a
-      href="https://www.youtube.com/@ItzOratotITA?sub_confirmation=1"
-      target="_blank"
-      rel="noopener"
-      class="text-decoration-none"
-    >
-      <div class="card border rounded-4 bg-darker text-center card">
-        <img
-          src="/assets/yt-logo.svg"
-          class="card-img-top p-3"
-          alt="YouTube logo"
-        />
-        <div class="card-body">
-          <p class="card-title h5 text-danger">YouTube</p>
-        </div>
-      </div>
-    </a>
-
-    <a
-      href="https://www.reddit.com/user/Which-Taro5092/"
-      target="_blank"
-      rel="noopener"
-      class="text-decoration-none"
-    >
-      <div class="card border rounded-4 bg-darker text-center card">
-        <img
-          src="/assets/reddit-logo.svg"
-          class="card-img-top p-3"
-          alt="Reddit logo"
-        />
-        <div class="card-body">
-          <p class="card-title h5" style="color: #ff4500">Reddit</p>
-        </div>
-      </div>
-    </a>
-    <a
-      href="https://www.twitch.tv/oratot"
-      target="_blank"
-      rel="noopener"
-      class="text-decoration-none"
-    >
-      <div class="card border rounded-4 bg-darker text-center card">
-        <img
-          src="/assets/twitch-logo.svg"
-          class="card-img-top p-3"
-          alt="Twitch logo"
-        />
-        <div class="card-body">
-          <p class="card-title h5" style="color: #9146ff">Twitch</p>
-        </div>
-      </div>
-    </a>
-    <a
-      href="https://github.com/itzoratotita"
-      target="_blank"
-      rel="noopener"
-      class="text-decoration-none"
-    >
-      <div class="card border rounded-4 bg-darker text-center card">
-        <img
-          src="/assets/github-logo.svg"
-          class="card-img-top p-3"
-          alt="GitHub logo"
-        />
-        <div class="card-body">
-          <p class="card-title h5 text-white">GitHub</p>
-        </div>
-      </div>
-    </a>
-    <a
-      href="/discord"
-      target="_blank"
-      rel="noopener"
-      class="text-decoration-none"
-    >
-      <div class="card border rounded-4 bg-darker text-center card">
-        <img
-          src="/assets/discord-logo.svg"
-          class="card-img-top p-3"
-          alt="Discord logo"
-        />
-        <div class="card-body">
-          <p class="card-title h5" style="color: #5865f2">Discord</p>
-        </div>
-      </div>
-    </a>
+    {% include card.html
+    link="https://www.youtube.com/@ItzOratotITA?sub_confirmation=1"
+    arialabel="Link to my YouTube channel" img="/assets/yt-logo.svg?"
+    alt="YouTube Logo" text="YouTube" htype="h5" hascolor=true
+    classes="text-danger" %} {% include card.html
+    link="https://www.reddit.com/user/Which-Taro5092/" arialabel="Link to my
+    Reddit account" img="/assets/reddit-logo.svg?" alt="Reddit Logo"
+    text="Reddit" htype="h5" hascolor=true color="#ff4500" %} {% include
+    card.html link="https://www.twitch.tv/oratot" arialabel="Link to my Twitch
+    account" img="/assets/twitch-logo.svg?" alt="Twitch Logo" text="Twitch"
+    htype="h5" hascolor=true color="#9146ff" %} {% include card.html
+    link="https://github.com/itzoratotita" arialabel="Link to my GitHub account"
+    img="/assets/github-logo.svg?" alt="GitHub Logo" text="GitHub" htype="h5" %}
+    {% include card.html link="/discord" arialabel="Link to my Discord server"
+    img="/assets/discord-logo.svg?" alt="Discord Logo" text="Discord" htype="h5"
+    hascolor=true color="#5865f2" %}
   </div>
 </div>
