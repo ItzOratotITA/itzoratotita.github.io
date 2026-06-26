@@ -14,7 +14,7 @@ keywords: Minecraft, PVP, Combat, Resource Pack, Minecraft PVP
 This resource pack improves your pvp experience by increasing visibility, along with some little funny textures, some recolors and also more useful cool stuff from Vanilla Tweaks. A lot of vanilla tweaks. This texture pack is a mix of different texture packs made by other people and some features I made myself.
 This resource pack works with:
 
-- [VulkanMod](https://modrinth.com/mod/vulkanmod)
+- [VulkanMod](https://modrinth.com/mod/vulkanmod) _(partially)_
 - [Respackopts](https://modrinth.com/mod/respackopts) (from version 2.1 and above)
 
 **DISCLAIMER: Use of [NoTextureRotations](https://modrinth.com/mod/notexturerotations/versions) is recommended because of the use of [variated blocks](https://vanillatweaks.net/picker/resource-packs/).**
@@ -33,7 +33,7 @@ This resource pack works with:
 - **High Resolution Font** _(From: [Faithful 32x](https://modrinth.com/resourcepack/faithful-32x))_
 - **Dark GUI** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
 - **Visible Wither Hearts** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
-- **More cool stuff!** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
+- **More cool stuff!** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/), [Ice Cream](https://modrinth.com/resourcepack/ice-cream/))_
 
 ## Installation Guide
 
@@ -45,6 +45,6 @@ Another instance of File Explorer should pop up.<br>
 Drag `Oratot's PVP.zip` from the instance of File Explorer opened in your downloads folder to the center of the one opened on your Minecraft folder. Go back to Minecraft, and the texture pack should show up.
 
 <div class="d-flex flex-wrap gap-2" id="downloads">
-<a href="/pack/Oratot's PVP v2.2.1.zip" download="Oratot's PVP v2.2.1.zip" class="btn btn-primary border">Download v2.2.1 (Latest)<br><span class="btn_subtitle">Minecraft 26.1x</span></a>
+<a href="/pack/Oratot's PVP v2.3.zip" download="Oratot's PVP v2.3.zip" class="btn btn-primary border">Download v2.2.1 (Latest)<br><span class="btn_subtitle">Minecraft 26.1x</span></a>
 <a href="https://modrinth.com/resourcepack/oratotpvp" rel="noopener" class="btn btn-success border">Download from Modrinth<br><span class="btn_subtitle">Other Versions</span></a>
 </div>
