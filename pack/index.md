@@ -14,7 +14,7 @@ keywords: Minecraft, PVP, Combat, Resource Pack, Minecraft PVP
 This resource pack improves your pvp experience by increasing visibility, along with some little funny textures, some recolors and also more useful cool stuff from Vanilla Tweaks. A lot of vanilla tweaks. This texture pack is a mix of different texture packs made by other people and some features I made myself.
 This resource pack works with:
 
-- [VulkanMod](https://modrinth.com/mod/vulkanmod) _(partially)_
+- [VulkanMod](https://modrinth.com/mod/vulkanmod) ([Glowier Glow](https://vanillatweaks.net/picker/resource-packs/) won't work)
 - [Respackopts](https://modrinth.com/mod/respackopts) (from version 2.1 and above)
 
 **DISCLAIMER: Use of [NoTextureRotations](https://modrinth.com/mod/notexturerotations/versions) is recommended because of the use of [variated blocks](https://vanillatweaks.net/picker/resource-packs/).**
