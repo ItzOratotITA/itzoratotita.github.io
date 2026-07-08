@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Discord Server
-redirect: "https://discord.gg/9JwsXzcqe"
+redirect: "https://discord.gg/v7S24scrH"
 custom_favicon: "/assets/discord-logo.svg"
 ---
 
