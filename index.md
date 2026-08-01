@@ -22,7 +22,7 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
   class="d-flex flex-wrap gap-2 my-3"
 >
   {% include card.html 
-    link="/utils/qr" 
+    link="/utils/qrcode" 
     arialabel="Link to QR Code Generator" 
     img="/assets/qr.png?v=2" 
     alt="QR Code Pixel Art" 
