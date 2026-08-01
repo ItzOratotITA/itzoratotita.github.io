@@ -3,7 +3,12 @@ const backgrounds = [
   "/assets/bridge_view.avif",
   "/assets/castle_view.avif",
   "/assets/mar_grande_view.avif",
-  ...Array(4).fill("/assets/chicchiribike_p.avif"),
+  "/assets/chicchiribike_p.avif",
+  "/assets/grotta1.avif",
+  "/assets/grotta2.avif",
+  "/assets/grotta3.avif",
+  "/assets/grotta4.avif",
+  "/assets/grotta5.avif",
 ];
 
 const randomBackground =
