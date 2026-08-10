@@ -30,7 +30,7 @@ This resource pack works with:
 - **Smaller Utilities** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
 - **Bow Charge Indicator**
 - **Recolored Totems, Crystals and Respawn Anchors**
-- **High Resolution Font** _(From: [Faithful 32x](https://modrinth.com/resourcepack/faithful-32x))_
+- **High Resolution Font** _(From: [Faithful 32x](https://faithfulpack.net))_
 - **Dark GUI** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
 - **Visible Wither Hearts** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
 - **More cool stuff!** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/), [Ice Cream](https://modrinth.com/resourcepack/ice-cream/))_
