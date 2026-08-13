@@ -50,6 +50,7 @@ Drag `Oratot's PVP.zip` from the instance of File Explorer opened in your downlo
 - ArshuGamingHY - SideShieldTexturePack - © ArshuGamingHY
 - ioblackshaw (a.k.a Enchanted Games) - Visible Powder Snow
 - Zwaluw - Ice Cream (font)
+- Faithful Resource Pack Team - Faithful 32x - https://faithfulpack.net/
 
 ## Permission
 
