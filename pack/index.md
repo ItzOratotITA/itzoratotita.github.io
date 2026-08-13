@@ -17,7 +17,7 @@ This resource pack works with:
 - [VulkanMod](https://modrinth.com/mod/vulkanmod) ([Glowier Glow](https://vanillatweaks.net/picker/resource-packs/) won't work)
 - [Respackopts](https://modrinth.com/mod/respackopts) (from version 2.1 and above)
 
-**DISCLAIMER: Use of [NoTextureRotations](https://modrinth.com/mod/notexturerotations/versions) is recommended because of the use of [variated blocks](https://vanillatweaks.net/picker/resource-packs/). That will still not solve non-rotation texture variations, which are locational, so I recommend either disabling the pack or finding a mod that fixes it.**
+**DISCLAIMER: Use of [NoTextureRotations](https://modrinth.com/mod/notexturerotations/versions) is recommended because of the use of [variated blocks](https://vanillatweaks.net/picker/resource-packs/). That will still not solve non-rotation texture variations, which are locational, but after v2.5 there is an option to remove them.**
 
 ## Features
 
@@ -50,7 +50,7 @@ Drag `Oratot's PVP.zip` from the instance of File Explorer opened in your downlo
 - ArshuGamingHY - SideShieldTexturePack - © ArshuGamingHY
 - ioblackshaw (a.k.a Enchanted Games) - Visible Powder Snow
 - Zwaluw - Ice Cream (font)
-- Faithful Resource Pack Team - Faithful 32x - https://faithfulpack.net/
+- Faithful Resource Pack Team - Faithful 32x (font) - https://faithfulpack.net/
 
 ## Permission
 
@@ -167,6 +167,6 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 </details>
 
 <div class="d-flex flex-wrap gap-2 my-3" id="downloads">
-<a href="/pack/Oratot's PVP v2.4.1.zip" download="Oratot's PVP v2.4.1.zip" class="btn btn-primary border">Download v2.4.1 (Latest)<br><span class="btn_subtitle">Minecraft 26.1x - 26.2</span></a>
+<a href="/pack/Oratot's PVP v2.5.zip" download="Oratot's PVP v2.5.zip" class="btn btn-primary border">Download v2.5 (Latest)<br><span class="btn_subtitle">Minecraft 26.1x - 26.2</span></a>
 <a href="https://modrinth.com/resourcepack/oratotpvp" rel="noopener nofollow" class="btn btn-success border">Download from Modrinth<br><span class="btn_subtitle">Other Versions</span></a>
 </div>
