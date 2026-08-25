@@ -10,9 +10,7 @@ keywords: Oratot, Paride, Italian, About me, About
 This is my personal website.
 My name is Paride Totaro, but I go under the nickname Oratot. I am an Italian guy who
 likes video games and tech. While yes, I admit, my shorts on YouTube are very
-cringe, an actually good long-form video is coming soon.<br><br>
-I go to [Scuola di Ciclismo (Cycling School) Franco Ballerini](https://scuoladiciclismoballerini.it/), Bari.
-<br>
+cringe, an actually good long-form video is coming soon.
 
 #### [Check out my socials!](/socials)
 
