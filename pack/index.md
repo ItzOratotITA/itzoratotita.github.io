@@ -11,7 +11,7 @@ keywords: Minecraft, PVP, Combat, Resource Pack, Minecraft PVP
 
 [Go to Downloads](#downloads)
 
-This resource pack improves your pvp experience by increasing visibility, along with some little funny textures, some recolors and also more useful cool stuff from Vanilla Tweaks. A lot of vanilla tweaks. This texture pack is a mix of different texture packs made by other people and some features I made myself.
+This resource pack improves your PvP experience by increasing visibility, along with some little funny textures, some recolors and also more useful cool stuff from Vanilla Tweaks. A lot of vanilla tweaks. This texture pack is a mix of different texture packs made by other people and some features I made myself.
 This resource pack works with:
 
 - [VulkanMod](https://modrinth.com/mod/vulkanmod) ([Glowier Glow](https://vanillatweaks.net/picker/resource-packs/) won't work according to VT, but I haven't tested that)
@@ -147,13 +147,11 @@ Original files independently authored by Oratot,
 including Respackopts configuration, are available under the MIT License.
 
 This does not apply to Minecraft-derived assets, Vanilla Tweaks
-material, or other third-party material [^1].
+material, or other third-party material*.
 
 See credits.txt
 
-[^1]:
-    Vanilla Tweaks and other third-party material remain subject to their
-    respective licenses and permissions.
+*Vanilla Tweaks and other third-party material remain subject to their respective licenses and permissions.
 
 # MIT License
 
@@ -168,6 +166,29 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 </details>
 
 <div class="d-flex flex-wrap gap-2 my-3" id="downloads">
-<a href="/pack/Oratot's PVP v2.5.zip" download="Oratot's PVP v2.5.zip" class="btn btn-primary border">Download v2.5 (Latest)<br><span class="btn_subtitle">Minecraft 26.1x - 26.2</span></a>
-<a href="https://modrinth.com/resourcepack/oratotpvp" rel="noopener nofollow" class="btn btn-success border">Download from Modrinth<br><span class="btn_subtitle">Other Versions</span></a>
+
+<div class="dropdown">
+  <button class="btn btn-primary border dropdown-toggle" type="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+    Downloads
+  </button>
+
+  <ul class="dropdown-menu dropdown-menu-dark bg-primary border">
+    <li>
+      <a class="dropdown-item"
+         href="/pack/Oratot's PVP v2.5.zip"
+         download="Oratot's PVP v2.5.zip">
+        Direct Download
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item"
+         href="https://modrinth.com/resourcepack/oratotpvp"
+         rel="noopener nofollow">
+        Modrinth
+      </a>
+    </li>
+  </ul>
+</div>
+<a href="https://github.com/ItzOratotITA/OratotPVP" rel="noopener nofollow" class="btn btn-dark border">GitHub Repo</a>
 </div>
