@@ -126,6 +126,10 @@ body {
     overflow: hidden;
 }
 
+.skin-viewer-box > canvas {
+    border-radius: inherit;
+}
+
 #skin_container {
     width: 100%;
     height: 100%;

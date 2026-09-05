@@ -11,6 +11,9 @@ const skinViewer = new skinview3d.SkinViewer({
   cape: "/assets/eye-blossom-cape.png",
 });
 
+skinViewer.renderer.outputColorSpace = "srgb-linear";
+skinViewer.fxaaPass.enabled = false;
+
 function resizeSkinViewer() {
   skinViewer.setSize(skinViewerBox.clientWidth, skinViewerBox.clientHeight);
 }
