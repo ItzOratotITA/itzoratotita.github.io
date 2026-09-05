@@ -1,8 +1,8 @@
 @font-face {
     font-family: "Minecraft Seven";
     src:
-        url("/assets/Minecraft-Seven_v2.woff2") format("woff2"),
-        url("/assets/MinecraftSeven_2.ttf") format("truetype");
+        url("/assets/Minecraft\ Seven.woff2") format("woff2"),
+        url("/assets/Minecraft\ Seven.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -10,7 +10,9 @@
 
 @font-face {
     font-family: "Minecraft Ten";
-    src: url("/assets/MinecraftTen.woff") format("woff");
+    src:
+        url("/assets/Minecraft\ Ten.woff2") format("woff2"),
+        url("/assets/Minecraft\ Ten.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -18,7 +20,9 @@
 
 @font-face {
     font-family: "Minecraft Five";
-    src: url("/assets/minecraft-five-bold.woff2") format("woff2");
+    src:
+        url("/assets/Minecraft\ Five.woff2") format("woff2"),
+        url("/assets/Minecraft\ Five.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
