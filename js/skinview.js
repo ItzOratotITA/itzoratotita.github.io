@@ -1,6 +1,5 @@
 const skinCanvas = document.getElementById("skin_container");
 const skinViewerBox = document.querySelector(".skin-viewer-box");
-const skinViewerFallback = document.querySelector(".skin-viewer-fallback");
 const animationButton = document.getElementById("toggleSkinAnimation");
 const animationButtonIcon = document.getElementById("skinAnimationIcon");
 const skinViewerStatus = document.getElementById("skinViewerStatus");
@@ -30,6 +29,7 @@ function showSkinViewerError() {
 async function initializeSkinViewer() {
   if (initializationStarted) return;
   initializationStarted = true;
+  skinCanvas.setAttribute("aria-busy", "true");
 
   try {
     skinview3d = await import(
@@ -60,12 +60,13 @@ async function initializeSkinViewer() {
       skinViewer.loadCape("/assets/eye-blossom-cape.png"),
     ]);
 
-    skinViewerFallback.classList.add("d-none");
     animationButton.disabled = false;
     updateAnimationButton(false);
   } catch (error) {
     console.error("Could not initialize the skin viewer:", error);
     showSkinViewerError();
+  } finally {
+    skinCanvas.setAttribute("aria-busy", "false");
   }
 }
 

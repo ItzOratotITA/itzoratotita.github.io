@@ -106,10 +106,6 @@ body {
     height: 28rem;
 }
 
-.skin-viewer-fallback {
-    width: 8rem;
-}
-
 .card {
     transition:
         background-color 0.15s ease,
