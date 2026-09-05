@@ -23,3 +23,8 @@ cringe, an actually good long-form video is coming soon.
 - RAM: 32 GB DDR5-6000
 - Storage: 2 TB NVMe SSD
 - OS: CachyOS and Windows 11 Pro (Dual Boot)
+
+## Clearing Stuff Up
+
+- This Website hosts mostly PRE-EXISTING utilities made by others
+- LLMs were used in the process of creating the website, but MOSTLY for the JavaScript. Most HTML & CSS (& Markdown) was handmade.

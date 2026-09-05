@@ -6,7 +6,12 @@
     <div class="card border rounded-4 bg-darker text-center card">
         <img
             src="{{ include.img }}"
-            class="card-img-top p-3 {% if include.pixelart %} pixel-art {% endif %}"
+            class="card-img-top p-3 {% if include.pixelart %}pixel-art{% endif %}"
+            style="
+                height: 140px;
+                object-fit: contain;
+                {% if include.customimgstyle %}{{ include.customimgstyle }}{% endif %}
+            "
             alt="{{ include.alt }}"
         />
         <div class="card-body">
