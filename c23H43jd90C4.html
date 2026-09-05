@@ -13,7 +13,6 @@
                 height: 100%;
                 overflow: hidden;
                 background-color: #000;
-                cursor: pointer;
             }
 
             .fullscreen-video {
@@ -40,6 +39,12 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                border: 0;
+                cursor: pointer;
+            }
+
+            .overlay[hidden] {
+                display: none;
             }
 
             .click-text {
@@ -54,28 +59,28 @@
         </style>
     </head>
     <body>
-        <div class="overlay" id="trigger-overlay">
-            <div class="click-text" id="prompt-text">click me</div>
-        </div>
+        <button class="overlay" id="trigger-overlay" type="button">
+            <span class="click-text" id="prompt-text">click me</span>
+        </button>
 
-        <video class="fullscreen-video" loop id="rickvideo">
+        <video class="fullscreen-video" loop playsinline id="rickvideo">
             <source src="/assets/c23H43jd90C4.webm" type="video/webm" />
         </video>
 
         <script>
             const video = document.getElementById("rickvideo");
+            const overlay = document.getElementById("trigger-overlay");
             const text = document.getElementById("prompt-text");
 
-            document.addEventListener(
-                "click",
-                function () {
-                    text.style.display = "none";
-                    video.play().catch(function (error) {
-                        console.log("Error:", error);
-                    });
-                },
-                { once: true },
-            );
+            overlay.addEventListener("click", async function () {
+                try {
+                    await video.play();
+                    overlay.hidden = true;
+                } catch (error) {
+                    console.error("Playback failed:", error);
+                    text.textContent = "click to try again";
+                }
+            });
         </script>
     </body>
 </html>

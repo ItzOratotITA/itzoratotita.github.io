@@ -1,65 +1,98 @@
-import * as skinview3d from "https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/+esm";
-
-const canvas = document.getElementById("skin_container");
+const skinCanvas = document.getElementById("skin_container");
 const skinViewerBox = document.querySelector(".skin-viewer-box");
-
-const skinViewer = new skinview3d.SkinViewer({
-  canvas,
-  width: skinViewerBox.clientWidth,
-  height: skinViewerBox.clientHeight,
-  skin: "/assets/ItzOratotITA.png",
-  cape: "/assets/eye-blossom-cape.png",
-});
-
-skinViewer.renderer.outputColorSpace = "srgb-linear";
-skinViewer.fxaaPass.enabled = false;
-
-function resizeSkinViewer() {
-  skinViewer.setSize(skinViewerBox.clientWidth, skinViewerBox.clientHeight);
-}
-
-resizeSkinViewer();
-
-const resizeObserver = new ResizeObserver(() => {
-  resizeSkinViewer();
-});
-
-resizeObserver.observe(skinViewerBox);
-
-window.addEventListener("resize", resizeSkinViewer);
-skinViewer.controls.enableRotate = true;
-skinViewer.controls.enableZoom = true;
-skinViewer.controls.enablePan = true;
-let skinAnimationPlaying = false;
-
+const skinViewerFallback = document.querySelector(".skin-viewer-fallback");
 const animationButton = document.getElementById("toggleSkinAnimation");
 const animationButtonIcon = document.getElementById("skinAnimationIcon");
+const skinViewerStatus = document.getElementById("skinViewerStatus");
 
-function startSkinAnimation() {
-  skinViewer.animation = new skinview3d.WalkingAnimation();
-  skinViewer.animation.speed = 0.8;
+let skinViewer = null;
+let skinview3d = null;
+let skinAnimationPlaying = false;
+let initializationStarted = false;
 
-  animationButtonIcon.src = "/assets/pause.svg";
-  animationButtonIcon.alt = "⏸";
-  animationButton.setAttribute("aria-label", "Stop animation");
-
-  skinAnimationPlaying = true;
+function updateAnimationButton(playing) {
+  animationButtonIcon.src = playing ? "/assets/pause.svg" : "/assets/play.svg";
+  animationButtonIcon.alt = playing ? "⏸" : "▶";
+  animationButton.setAttribute(
+    "aria-label",
+    playing ? "Stop animation" : "Start animation",
+  );
+  animationButton.setAttribute("aria-pressed", String(playing));
+  skinAnimationPlaying = playing;
 }
 
-function stopSkinAnimation() {
-  skinViewer.animation = null;
+function showSkinViewerError() {
+  skinViewerStatus.textContent =
+    "The interactive skin viewer could not be loaded. The skin download is still available.";
+  skinViewerStatus.classList.remove("d-none");
+}
 
-  animationButtonIcon.src = "/assets/play.svg";
-  animationButtonIcon.alt = "▶";
-  animationButton.setAttribute("aria-label", "Start animation");
+async function initializeSkinViewer() {
+  if (initializationStarted) return;
+  initializationStarted = true;
 
-  skinAnimationPlaying = false;
+  try {
+    skinview3d = await import(
+      "https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/+esm"
+    );
+
+    skinViewer = new skinview3d.SkinViewer({
+      canvas: skinCanvas,
+      width: skinViewerBox.clientWidth,
+      height: skinViewerBox.clientHeight,
+    });
+    skinViewer.renderer.outputColorSpace = "srgb-linear";
+    skinViewer.fxaaPass.enabled = false;
+    skinViewer.controls.enableRotate = true;
+    skinViewer.controls.enableZoom = true;
+    skinViewer.controls.enablePan = true;
+
+    const resizeObserver = new ResizeObserver(() => {
+      skinViewer.setSize(
+        skinViewerBox.clientWidth,
+        skinViewerBox.clientHeight,
+      );
+    });
+    resizeObserver.observe(skinViewerBox);
+
+    await Promise.all([
+      skinViewer.loadSkin("/assets/ItzOratotITA.png"),
+      skinViewer.loadCape("/assets/eye-blossom-cape.png"),
+    ]);
+
+    skinViewerFallback.classList.add("d-none");
+    animationButton.disabled = false;
+    updateAnimationButton(false);
+  } catch (error) {
+    console.error("Could not initialize the skin viewer:", error);
+    showSkinViewerError();
+  }
 }
 
 animationButton.addEventListener("click", () => {
+  if (!skinViewer || !skinview3d) return;
+
   if (skinAnimationPlaying) {
-    stopSkinAnimation();
+    skinViewer.animation = null;
+    updateAnimationButton(false);
   } else {
-    startSkinAnimation();
+    skinViewer.animation = new skinview3d.WalkingAnimation();
+    skinViewer.animation.speed = 0.8;
+    updateAnimationButton(true);
   }
 });
+
+if ("IntersectionObserver" in window) {
+  const visibilityObserver = new IntersectionObserver(
+    (entries, observer) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        observer.disconnect();
+        initializeSkinViewer();
+      }
+    },
+    { rootMargin: "300px" },
+  );
+  visibilityObserver.observe(skinViewerBox);
+} else {
+  initializeSkinViewer();
+}

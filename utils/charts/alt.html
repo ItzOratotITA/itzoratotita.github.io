@@ -3,141 +3,58 @@ layout: default
 title: Chart Generator
 description: No-BS Free Chart generator via Chart.js, a JavaScript library for creating charts.
 keywords: chart, generator, Chart.js, JavaScript, utility
-custom_scripts: |
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    const chartType = document.getElementById("chartType");
-    const chartLabels = document.getElementById("chartLabels");
-    const chartValues = document.getElementById("chartValues");
-    const generateChart = document.getElementById("generateChart");
-    const chartCanvas = document.getElementById("chartCanvas");
-    const downloadChart = document.getElementById("downloadChart");
-
-    let currentChart = null;
-
-    function createChart() {
-      const labels = chartLabels.value
-        .split(",")
-        .map((label) => label.trim())
-        .filter((label) => label !== "");
-
-      const values = chartValues.value
-        .split(",")
-        .map((value) => Number(value.trim()));
-
-      if (labels.length === 0 || values.length === 0) {
-        alert("Insert at least one label and one value.");
-        return;
-      }
-
-      if (labels.length !== values.length) {
-        alert("The number of labels must match the number of values.");
-        return;
-      }
-
-      if (values.some((value) => Number.isNaN(value))) {
-        alert("Values must be numbers.");
-        return;
-      }
-
-      if (currentChart !== null) {
-        currentChart.destroy();
-      }
-
-      currentChart = new Chart(chartCanvas, {
-        type: chartType.value,
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: "Values",
-              data: values,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          animation: true,
-          plugins: {
-            legend: {
-              display: chartType.value === "pie",
-            },
-          },
-          scales:
-            chartType.value === "bar"
-              ? {
-                  y: {
-                    beginAtZero: true,
-                  },
-                }
-              : {},
-        },
-      });
-
-      downloadChart.href = chartCanvas.toDataURL("image/png");
-      downloadChart.classList.remove("d-none");
-    }
-
-    generateChart.addEventListener("click", createChart);
-
-    downloadChart.addEventListener("click", () => {
-      downloadChart.href = chartCanvas.toDataURL("image/png");
-    });
-
-    chartLabels.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") createChart();
-    });
-
-    chartValues.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") createChart();
-    });
-
-    createChart();
-  </script>
+scripts:
+  - src: https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js
+    integrity: sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ
+    defer: true
+  - src: /js/chart-utils.js
+    local: true
+    defer: true
+  - src: /js/chart-chartjs.js
+    local: true
+    defer: true
 ---
 
 <h1>Chart Generator</h1>
 <p>
-  Line, bar and pie chart generator via Chart.js<br /><a href="/utils/charts/"
-    >Switch to new ApexCharts version</a
-  >
+    Line, bar and pie chart generator via Chart.js.<br />
+    <a href="/utils/charts/">Switch to ApexCharts version</a>
 </p>
-<label for="chartType" class="form-label">Chart type</label>
-<select id="chartType" class="form-select mb-3">
-  <option value="bar">Bar chart</option>
-  <option value="pie">Pie chart</option>
-  <option value="line">Line chart</option>
-</select>
 
-<label for="chartLabels" class="form-label">Labels</label>
-<input
-  type="text"
-  id="chartLabels"
-  class="form-control mb-3"
-  placeholder="Example: Apples, Bananas, Oranges"
-  value="Apples, Bananas, Oranges"
-/>
-
-<label for="chartValues" class="form-label">Values</label>
-<input
-  type="text"
-  id="chartValues"
-  class="form-control mb-3"
-  placeholder="Example: 10, 20, 15"
-  value="10, 20, 15"
-/>
-
-<button id="generateChart" class="btn btn-success border mb-3">
-  Generate Chart
-</button>
+<form id="chartForm" novalidate>
+    <label for="chartType" class="form-label">Chart type</label>
+    <select id="chartType" class="form-select mb-3">
+        <option value="bar" selected>Bar chart</option>
+        <option value="pie">Pie chart</option>
+        <option value="line">Line chart</option>
+    </select>
+    <label for="chartLabels" class="form-label">Labels</label>
+    <input type="text" id="chartLabels" class="form-control mb-3"
+        placeholder="Example: Apples, Bananas, Oranges"
+        value="Apples, Bananas, Oranges" required />
+    <label for="chartValues" class="form-label">Values</label>
+    <input type="text" id="chartValues" class="form-control mb-3"
+        placeholder="Example: 10, 20, 15" value="10, 20, 15" required />
+    <div class="d-flex flex-wrap gap-2 mb-3">
+        <button id="generateChart" class="btn btn-success border" type="submit">
+            Generate chart
+        </button>
+        <button id="resetChart" class="btn btn-secondary border" type="button">
+            Reset settings
+        </button>
+    </div>
+    <div id="chartStatus" class="utility-status mb-3" role="status" aria-live="polite"></div>
+</form>
 
 <div class="bg-white border p-3 rounded">
-  <canvas id="chartCanvas"></canvas>
+    <canvas id="chartCanvas" class="mw-100" aria-label="Generated chart"></canvas>
 </div>
-<a
-  id="downloadChart"
-  class="btn btn-primary border mt-3 d-none"
-  download="chart.png"
->
-  Download PNG
-</a>
+<a id="downloadChart" class="btn btn-primary border mt-3 d-none"
+    download="chart.png">Download PNG</a>
+<details class="chart-data-details mt-3" hidden>
+    <summary class="text-light">Generated chart data</summary>
+    <div class="table-responsive mt-2">
+        <table id="chartDataTable"
+            class="chart-data-table table table-dark table-striped caption-top mb-0" hidden></table>
+    </div>
+</details>

@@ -1,3 +1,7 @@
+{% assign cache_version = site.github.build_revision %}
+{% unless cache_version %}
+    {% assign cache_version = site.time | date: "%s" %}
+{% endunless %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -18,22 +22,22 @@
         <link
             rel="icon"
             type="image/png"
-            href="/assets/favicon-96x96.png?v={{ site.github.build_revision }}"
+            href="/assets/favicon-96x96.png?v={{ cache_version }}"
             sizes="96x96"
         />
         <link
             rel="icon"
             type="image/svg+xml"
-            href="/assets/favicon.svg?v={{ site.github.build_revision }}"
+            href="/assets/favicon.svg?v={{ cache_version }}"
         />
         <link
             rel="shortcut icon"
-            href="/assets/favicon.ico?v={{ site.github.build_revision }}"
+            href="/assets/favicon.ico?v={{ cache_version }}"
         />
         <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/assets/apple-touch-icon.png?v={{ site.github.build_revision }}"
+            href="/assets/apple-touch-icon.png?v={{ cache_version }}"
         />
 
         {% endunless %} {% if page.custom_favicon %}
@@ -46,12 +50,12 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link
             rel="manifest"
-            href="/site.webmanifest?v={{ site.github.build_revision }}"
+            href="/site.webmanifest?v={{ cache_version }}"
         />
         <meta name="apple-mobile-web-app-title" content="oratot.com" />
         <link
             rel="stylesheet"
-            href="/style.css?v={{ site.github.build_revision }}"
+            href="/style.css?v={{ cache_version }}"
         />
     </head>
     <body class="text-light mb-4">
@@ -62,29 +66,36 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="/"
                     ><img
-                        src="/assets/summer_logo_new.avif?v={{ site.github.build_revision }}"
+                        src="/assets/summer_logo_new.avif?v={{ cache_version }}"
                         alt="Logo"
                         style="height: 1.5em; width: auto"
                 /></a>
-                <div class="navbar-end ms-auto d-flex align-items-center gap-2">
+                <div class="ms-auto d-flex align-items-center gap-2 flex-shrink-0">
                     <ul
-                        class="navbar-logos d-none d-lg-flex align-items-center gap-2 mb-0"
+                        class="navbar-logos list-unstyled d-none d-lg-flex align-items-center gap-2 mb-0"
                     >
                         <li>
                             <a
+                                class="d-flex p-1"
                                 href="https://github.com/ItzOratotITA/itzoratotita.github.io"
                                 aria-label="GitHub"
                             >
-                                <img src="/assets/github-logo.svg" alt="" />
+                                <img
+                                    class="navbar-logo d-block object-fit-contain"
+                                    src="/assets/github-logo.svg"
+                                    alt=""
+                                />
                             </a>
                         </li>
 
                         <li>
                             <a
+                                class="d-flex p-1"
                                 href="https://x.com/ItzOratotITA"
                                 aria-label="X (formerly Twitter)"
                             >
                                 <img
+                                    class="navbar-logo d-block object-fit-contain"
                                     src="/assets/x-logo.svg"
                                     alt=""
                                     style="
@@ -96,8 +107,12 @@
                         </li>
 
                         <li>
-                            <a href="/discord" aria-label="Discord">
-                                <img src="/assets/discord-logo.svg" alt="" />
+                            <a class="d-flex p-1" href="/discord" aria-label="Discord">
+                                <img
+                                    class="navbar-logo d-block object-fit-contain"
+                                    src="/assets/discord-logo.svg"
+                                    alt=""
+                                />
                             </a>
                         </li>
                     </ul>
@@ -122,6 +137,7 @@
                         <li class="nav-item dropdown">
                             <a
                                 class="nav-link dropdown-toggle"
+                                href="#"
                                 role="button"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
@@ -150,6 +166,7 @@
                         <li class="nav-item dropdown">
                             <a
                                 class="nav-link dropdown-toggle"
+                                href="#"
                                 role="button"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
@@ -186,20 +203,26 @@
                         </li>
                     </ul>
                     <ul
-                        class="navbar-logos mobile-navbar-logos border-top d-flex d-lg-none align-items-center gap-2 mb-0"
+                        class="navbar-logos list-unstyled border-top d-flex d-lg-none align-items-center gap-2 mt-3 pt-3 pb-1 mb-0"
                     >
                         <li>
-                            <a href="/discord" aria-label="Discord">
-                                <img src="/assets/discord-logo.svg" alt="" />
+                            <a class="d-flex p-1" href="/discord" aria-label="Discord">
+                                <img
+                                    class="navbar-logo d-block object-fit-contain"
+                                    src="/assets/discord-logo.svg"
+                                    alt=""
+                                />
                             </a>
                         </li>
 
                         <li>
                             <a
+                                class="d-flex p-1"
                                 href="https://x.com/ItzOratotITA"
                                 aria-label="X (formerly Twitter)"
                             >
                                 <img
+                                    class="navbar-logo d-block object-fit-contain"
                                     src="/assets/x-logo.svg"
                                     alt=""
                                     style="
@@ -212,10 +235,15 @@
 
                         <li>
                             <a
+                                class="d-flex p-1"
                                 href="https://github.com/ItzOratotITA/itzoratotita.github.io"
                                 aria-label="GitHub"
                             >
-                                <img src="/assets/github-logo.svg" alt="" />
+                                <img
+                                    class="navbar-logo d-block object-fit-contain"
+                                    src="/assets/github-logo.svg"
+                                    alt=""
+                                />
                             </a>
                         </li>
                     </ul>
@@ -224,18 +252,36 @@
         </nav>
         <div class="container">
             <div class="row gy-2">
+                <main class="col-12 col-md-8 order-1 order-md-2">
+                    {% unless page.custom_container %}
+                    <div class="p-4 border rounded-5 bg-darker">
+                        {% endunless %}{{ content }} {% unless
+                        page.custom_container %}
+                    </div>
+                    {% endunless %}
+                </main>
+
                 <aside
-                    class="col-12 col-md-4"
+                    class="col-12 col-md-4 order-2 order-md-1"
                     aria-label="Minecraft Skin Viewer"
                 >
                     <div
-                        class="border rounded-5 bg-darker position-relative d-flex justify-content-center skin-viewer-box"
+                        class="border rounded-5 bg-darker position-relative d-flex justify-content-center overflow-hidden skin-viewer-box"
                     >
-                        <canvas id="skin_container"></canvas>
+                        <canvas
+                            id="skin_container"
+                            class="w-100 h-100 d-block m-0 p-0 rounded-5"
+                            aria-label="Interactive Minecraft skin viewer"
+                        ></canvas>
+                        <img
+                            class="skin-viewer-fallback pixel-art position-absolute top-50 start-50 translate-middle"
+                            src="/assets/ItzOratotITA.png?v={{ cache_version }}"
+                            alt="Oratot's Minecraft skin"
+                        />
                         <a
                             href="/assets/ItzOratotITA.png"
                             download="ItzOratotITA.png"
-                            class="btn btn-md btn-dark border-0 bg-transparent rounded-circle position-absolute top-0 start-0 m-2 skinbtn"
+                            class="btn btn-dark border-0 bg-transparent rounded-circle position-absolute top-0 start-0 m-2 skinbtn"
                             aria-label="Download Minecraft skin"
                         >
                             <img
@@ -246,9 +292,11 @@
                         </a>
                         <button
                             id="toggleSkinAnimation"
-                            class="btn btn-md btn-dark border-0 bg-transparent rounded-circle position-absolute top-0 end-0 m-2 skinbtn"
+                            class="btn btn-dark border-0 bg-transparent rounded-circle position-absolute top-0 end-0 m-2 skinbtn"
                             type="button"
-                            aria-label="Toggle animation"
+                            aria-label="Start animation"
+                            aria-pressed="false"
+                            disabled
                         >
                             <img
                                 id="skinAnimationIcon"
@@ -257,37 +305,36 @@
                                 alt="▶"
                             />
                         </button>
+                        <p
+                            id="skinViewerStatus"
+                            class="alert alert-warning position-absolute bottom-0 start-0 end-0 z-1 m-3 d-none"
+                            role="status"
+                        ></p>
                     </div>
                 </aside>
-
-                <main class="col-12 col-md-8">
-                    {% unless page.custom_container %}
-                    <div class="p-4 border rounded-5 bg-darker">
-                        {% endunless %}{{ content }} {% unless
-                        page.custom_container %}
-                    </div>
-                    {% endunless %}
-                </main>
             </div>
         </div>
-        {% if page.custom_scripts %} {{ page.custom_scripts }} {% endif %}
-        <script
-            type="module"
-            src="/js/skinview.js?v={{ site.github.build_revision }}"
-        ></script>
-        {% if page.hidemein %}
-        <script
-            defer
-            src="/js/hide.js?v={{ site.github.build_revision }}"
-        ></script>
-        {% endif %}
-        <script
-            defer
-            src="/js/background.js?v={{ site.github.build_revision }}"
-        ></script>
         <script
             defer
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
+        {% for script in page.scripts %}
+        <script
+            src="{{ script.src }}{% if script.local %}?v={{ cache_version }}{% endif %}"
+            {% if script.type %}type="{{ script.type }}"{% endif %}
+            {% if script.defer %}defer{% endif %}
+            {% if script.integrity %}integrity="{{ script.integrity }}" crossorigin="anonymous"{% endif %}
+        ></script>
+        {% endfor %}
+        <script
+            type="module"
+            src="/js/skinview.js?v={{ cache_version }}"
+        ></script>
+        <script
+            defer
+            src="/js/background.js?v={{ cache_version }}"
         ></script>
     </body>
 </html>

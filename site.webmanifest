@@ -1,18 +1,22 @@
 ---
 ---
+{% assign manifest_cache_version = site.github.build_revision %}
+{% unless manifest_cache_version %}
+  {% assign manifest_cache_version = site.time | date: "%s" %}
+{% endunless %}
 {
   "name": "oratot.com",
   "short_name": "oratot",
   "start_url": "/",
   "icons": [
     {
-      "src": "/assets/web-app-manifest-192x192.png?v={{ site.github.build_revision }}",
+      "src": "/assets/web-app-manifest-192x192.png?v={{ manifest_cache_version }}",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/web-app-manifest-512x512.png?v={{ site.github.build_revision }}",
+      "src": "/assets/web-app-manifest-512x512.png?v={{ manifest_cache_version }}",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

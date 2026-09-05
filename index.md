@@ -24,7 +24,7 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
   {% include card.html 
     link="/utils/qrcode" 
     arialabel="Link to QR Code Generator" 
-    img="/assets/qr.png?v=2" 
+    img="/assets/qr.png"
     alt="QR Code Pixel Art" 
     pixelart=true 
     text="QR Code Generator" 
@@ -32,7 +32,7 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
   {% include card.html 
     link="/utils/charts" 
     arialabel="Link to Chart Generator" 
-    img="/assets/chart.png?v=2" 
+    img="/assets/chart.png"
     alt="Line Chart / Value Increasing Pixel Art" 
     pixelart=true 
     text="Chart Generator" 
@@ -40,7 +40,7 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
   {% include card.html 
     link="/utils/nether" 
     arialabel="Link to Nether Coordinate Calculator/Converter" 
-    img="/assets/nether_portal.png?v=2" 
+    img="/assets/nether_portal.png"
     alt="Minecraft Nether Portal Texture" 
     pixelart=true 
     text="Nether Coords" 
@@ -48,7 +48,7 @@ To support me, consider subscribing to [my YouTube channel](https://www.youtube.
   {% include card.html 
     link="/pack" 
     arialabel="Link to Oratot's PVP Minecraft Resource Pack" 
-    img="/assets/favicon.svg?v=2" 
+    img="/assets/favicon.svg"
     alt="The logo for Oratot's PVP" 
     text="Oratot's<br>PVP" 
     htype="h6" %}
