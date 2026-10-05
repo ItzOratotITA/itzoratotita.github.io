@@ -173,20 +173,27 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
     Downloads
   </button>
 
-  <ul class="dropdown-menu dropdown-menu-dark bg-primary border">
+  <ul class="dropdown-menu dropdown-menu-dark bg-dark border">
 
     <li>
-      <a class="dropdown-item"
+      <a class="dropdown-item bg-success"
          href="https://modrinth.com/resourcepack/oratotpvp"
          rel="noopener nofollow">
         Modrinth (recommended)
       </a>
     </li>
     <li>
-      <a class="dropdown-item"
+      <a class="dropdown-item bg-primary"
          href="/pack/Oratot's PVP 2.5.1.zip"
          download="Oratot's PVP 2.5.1.zip">
         Direct Download
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item bg-warning text-dark"
+         href="/pack/Oratot's PvP b2.5.3.zip"
+         download="Oratot's PvP b2.5.3.zip">
+        Direct Download (26.3 beta)
       </a>
     </li>
 
