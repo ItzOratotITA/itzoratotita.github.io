@@ -1,60 +1,115 @@
 ---
 layout: default
 title: Chart Generator
+i18n_title: charts.title
 description: No-BS Free Chart generator via Chart.js, a JavaScript library for creating charts.
+i18n_description: charts.chartjs_description
 keywords: chart, generator, Chart.js, JavaScript, utility
 scripts:
-  - src: https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js
-    integrity: sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ
-    defer: true
-  - src: /js/chart-utils.js
-    local: true
-    defer: true
-  - src: /js/chart-chartjs.js
-    local: true
-    defer: true
+    - src: https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js
+      integrity: sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ
+      defer: true
+    - src: /js/chart-utils.js
+      local: true
+      defer: true
+    - src: /js/chart-chartjs.js
+      local: true
+      defer: true
 ---
 
-<h1>Chart Generator</h1>
+<h1 data-i18n="charts.title">Chart Generator</h1>
 <p>
-    Line, bar and pie chart generator via Chart.js.<br />
-    <a href="/utils/charts/">Switch to ApexCharts version</a>
+    <span data-i18n="charts.chartjs_intro"
+        >Line, bar and pie chart generator via Chart.js.</span
+    ><br />
+    <a href="/utils/charts/" data-i18n="charts.switch_apex"
+        >Switch to ApexCharts version</a
+    >
 </p>
 
 <form id="chartForm" novalidate>
-    <label for="chartType" class="form-label">Chart type</label>
+    <label for="chartType" class="form-label" data-i18n="charts.chart_type"
+        >Chart type</label
+    >
     <select id="chartType" class="form-select mb-3">
-        <option value="bar" selected>Bar chart</option>
-        <option value="pie">Pie chart</option>
-        <option value="line">Line chart</option>
+        <option value="bar" selected data-i18n="charts.bar">Bar chart</option>
+        <option value="pie" data-i18n="charts.pie">Pie chart</option>
+        <option value="line" data-i18n="charts.line">Line chart</option>
     </select>
-    <label for="chartLabels" class="form-label">Labels</label>
-    <input type="text" id="chartLabels" class="form-control mb-3"
+    <label for="chartLabels" class="form-label" data-i18n="charts.labels"
+        >Labels</label
+    >
+    <input
+        type="text"
+        id="chartLabels"
+        class="form-control mb-3"
         placeholder="Example: Apples, Bananas, Oranges"
-        value="Apples, Bananas, Oranges" required />
-    <label for="chartValues" class="form-label">Values</label>
-    <input type="text" id="chartValues" class="form-control mb-3"
-        placeholder="Example: 10, 20, 15" value="10, 20, 15" required />
+        data-i18n-placeholder="charts.labels_placeholder"
+        value="Apples, Bananas, Oranges"
+        required
+    />
+    <label for="chartValues" class="form-label" data-i18n="charts.values"
+        >Values</label
+    >
+    <input
+        type="text"
+        id="chartValues"
+        class="form-control mb-3"
+        placeholder="Example: 10, 20, 15"
+        data-i18n-placeholder="charts.values_placeholder"
+        value="10, 20, 15"
+        required
+    />
     <div class="d-flex flex-wrap gap-2 mb-3">
-        <button id="generateChart" class="btn btn-success border" type="submit">
+        <button
+            id="generateChart"
+            class="btn btn-success border"
+            type="submit"
+            data-i18n="charts.generate"
+        >
             Generate chart
         </button>
-        <button id="resetChart" class="btn btn-secondary border" type="button">
+        <button
+            id="resetChart"
+            class="btn btn-secondary border"
+            type="button"
+            data-i18n="charts.reset"
+        >
             Reset settings
         </button>
     </div>
-    <div id="chartStatus" class="utility-status mb-3" role="status" aria-live="polite"></div>
+    <div
+        id="chartStatus"
+        class="utility-status mb-3"
+        role="status"
+        aria-live="polite"
+    ></div>
 </form>
 
 <div class="bg-white border p-3 rounded">
-    <canvas id="chartCanvas" class="mw-100" aria-label="Generated chart"></canvas>
+    <canvas
+        id="chartCanvas"
+        class="mw-100"
+        aria-label="Generated chart"
+        data-i18n-aria-label="charts.generated_chart"
+    ></canvas>
 </div>
-<a id="downloadChart" class="btn btn-primary border mt-3 d-none"
-    download="chart.png">Download PNG</a>
+<a
+    id="downloadChart"
+    class="btn btn-primary border mt-3 d-none"
+    download="chart.png"
+    data-i18n="charts.download_png"
+    >Download PNG</a
+>
 <details class="chart-data-details mt-3" hidden>
-    <summary class="text-light">Generated chart data</summary>
+    <summary class="text-light" data-i18n="charts.generated_data">
+        Generated chart data
+    </summary>
     <div class="table-responsive mt-2">
-        <table id="chartDataTable"
-            class="chart-data-table table table-dark table-striped caption-top mb-0" hidden></table>
+        <table
+            id="chartDataTable"
+            class="chart-data-table table table-dark table-striped caption-top mb-0"
+            hidden
+        ></table>
     </div>
 </details>

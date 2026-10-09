@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Credits
+i18n_title: pages.credits_title
+i18n_description: pages.credits_description
 description: Oratot.com credits
 ---
 
@@ -13,5 +15,5 @@ description: Oratot.com credits
 
 **ApexCharts:**
 Copyright (c) 2018 ApexCharts
-Licensed under the ApexCharts Community License:
+<span data-i18n="pages.apex_license">Licensed under the ApexCharts Community License:</span>
 https://apexcharts.com/license/community/

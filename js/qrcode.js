@@ -23,6 +23,16 @@ const ALLOWED_LOGO_TYPES = new Set([
 
 let qrGeneration = 0;
 
+function qrT(key, fallback, params = {}) {
+  return (
+    window.SiteI18n?.t(key, fallback, params) ??
+    fallback.replace(/\{(\w+)\}/g, (match, name) => params[name] ?? match)
+  );
+}
+
+// Only our localized errors are safe to show; library errors stay in the console.
+class QrUserError extends Error {}
+
 function setQrStatus(message = "", kind = "danger") {
   qrStatus.replaceChildren();
   if (!message) return;
@@ -37,7 +47,10 @@ function setQrStatus(message = "", kind = "danger") {
     dismissButton.type = "button";
     dismissButton.className = "btn-close";
     dismissButton.dataset.bsDismiss = "alert";
-    dismissButton.setAttribute("aria-label", "Dismiss status");
+    dismissButton.setAttribute(
+      "aria-label",
+      qrT("utilities.dismiss_status", "Dismiss status"),
+    );
     alert.append(dismissButton);
   }
 
@@ -63,7 +76,14 @@ function loadLogoImage(file) {
     });
     image.addEventListener("error", () => {
       URL.revokeObjectURL(objectUrl);
-      reject(new Error("The selected logo is not a valid image."));
+      reject(
+        new QrUserError(
+          qrT(
+            "utilities.qr_invalid_image",
+            "The selected logo is not a valid image.",
+          ),
+        ),
+      );
     });
     image.src = objectUrl;
   });
@@ -71,10 +91,17 @@ function loadLogoImage(file) {
 
 async function prepareLogo(file) {
   if (!ALLOWED_LOGO_TYPES.has(file.type)) {
-    throw new Error("Choose a PNG, JPEG, WebP or SVG logo.");
+    throw new QrUserError(
+      qrT(
+        "utilities.qr_invalid_logo_type",
+        "Choose a PNG, JPEG, WebP or SVG logo.",
+      ),
+    );
   }
   if (file.size > MAX_LOGO_BYTES) {
-    throw new Error("The logo must be 50 MiB or smaller.");
+    throw new QrUserError(
+      qrT("utilities.qr_logo_too_large", "The logo must be 50 MiB or smaller."),
+    );
   }
 
   const image = await loadLogoImage(file);
@@ -82,10 +109,20 @@ async function prepareLogo(file) {
   const height = image.naturalHeight;
 
   if (!width || !height) {
-    throw new Error("The selected logo has invalid dimensions.");
+    throw new QrUserError(
+      qrT(
+        "utilities.qr_invalid_logo_dimensions",
+        "The selected logo has invalid dimensions.",
+      ),
+    );
   }
   if (width * height > MAX_LOGO_PIXELS) {
-    throw new Error("The logo must be no larger than 40 megapixels.");
+    throw new QrUserError(
+      qrT(
+        "utilities.qr_logo_too_many_pixels",
+        "The logo must be no larger than 40 megapixels.",
+      ),
+    );
   }
 
   const scale = Math.min(1, MAX_LOGO_DIMENSION / Math.max(width, height));
@@ -94,13 +131,24 @@ async function prepareLogo(file) {
   logoCanvas.height = Math.max(1, Math.round(height * scale));
   const context = logoCanvas.getContext("2d");
 
-  if (!context) throw new Error("The browser could not process the logo.");
+  if (!context)
+    throw new QrUserError(
+      qrT(
+        "utilities.qr_logo_processing_failed",
+        "The browser could not process the logo.",
+      ),
+    );
   context.drawImage(image, 0, 0, logoCanvas.width, logoCanvas.height);
 
   try {
     return logoCanvas.toDataURL("image/png");
   } catch {
-    throw new Error("The selected logo could not be safely rendered.");
+    throw new QrUserError(
+      qrT(
+        "utilities.qr_logo_rendering_failed",
+        "The selected logo could not be safely rendered.",
+      ),
+    );
   }
 }
 
@@ -109,11 +157,21 @@ async function generateQrCode(event, announceSuccess = true) {
 
   const text = qrText.value.trim();
   if (!text) {
-    setQrStatus("Write something before generating the QR code.");
+    setQrStatus(
+      qrT(
+        "utilities.qr_empty_text",
+        "Write something before generating the QR code.",
+      ),
+    );
     return;
   }
   if (typeof QrCodeWithLogo !== "function") {
-    setQrStatus("The QR library could not be loaded. Try refreshing the page.");
+    setQrStatus(
+      qrT(
+        "utilities.qr_library_unavailable",
+        "The QR library could not be loaded. Try refreshing the page.",
+      ),
+    );
     return;
   }
 
@@ -161,16 +219,34 @@ async function generateQrCode(event, announceSuccess = true) {
     qrCanvas.width = renderCanvas.width;
     qrCanvas.height = renderCanvas.height;
     const context = qrCanvas.getContext("2d");
-    if (!context) throw new Error("The browser could not display the QR code.");
+    if (!context)
+      throw new QrUserError(
+        qrT(
+          "utilities.qr_display_failed",
+          "The browser could not display the QR code.",
+        ),
+      );
     context.drawImage(renderCanvas, 0, 0);
 
     qrDownload.href = qrCanvas.toDataURL("image/png");
     qrDownload.classList.remove("d-none");
-    setQrStatus(announceSuccess ? "QR code generated." : "", "success");
+    setQrStatus(
+      announceSuccess
+        ? qrT("utilities.qr_generated", "QR code generated.")
+        : "",
+      "success",
+    );
   } catch (error) {
     if (generation !== qrGeneration) return;
     console.error(error);
-    setQrStatus(error.message || "The QR code could not be generated.");
+    setQrStatus(
+      error instanceof QrUserError
+        ? error.message
+        : qrT(
+            "utilities.qr_generation_failed",
+            "The QR code could not be generated.",
+          ),
+    );
   } finally {
     if (generation === qrGeneration) generateQr.disabled = false;
   }

@@ -75,17 +75,8 @@ body {
     height: 3em;
 }
 
-@media (min-width: 992px) {
-    .navbar > .container-fluid {
-        position: relative;
-    }
-
-    #navbarSupportedContent {
-        position: absolute;
-        left: 50%;
-        width: max-content;
-        transform: translateX(-50%);
-    }
+.language-switcher select {
+    font-family: "Minecraft Seven", sans-serif;
 }
 
 @media (min-width: 768px) {

@@ -2,6 +2,13 @@
     href="{{ include.link }}"
     class="text-decoration-none"
     aria-label="{{ include.arialabel }}"
+    {%
+    if
+    include.aria_key
+    %}data-i18n-aria-label="{{ include.aria_key }}"
+    {%
+    endif
+    %}
 >
     <div class="card border rounded-4 bg-darker text-center">
         <img
@@ -13,6 +20,13 @@
                 {% if include.customimgstyle %}{{ include.customimgstyle }}{% endif %}
             "
             alt="{{ include.alt }}"
+            {%
+            if
+            include.alt_key
+            %}data-i18n-alt="{{ include.alt_key }}"
+            {%
+            endif
+            %}
         />
         <div class="card-body">
             <p
@@ -26,7 +40,10 @@
                 %}
                 class="card-title {{ include.htype }} {% unless include.hascolor %} {% unless include.color %} text-white {% endunless %} {% endunless %} {{ include.classes }}"
             >
-                {{ include.text }}
+                {% if include.text_key %}<span
+                    data-i18n-html="{{ include.text_key }}"
+                    >{{ include.text }}</span
+                >{% else %}{{ include.text }}{% endif %}
             </p>
         </div>
     </div>

@@ -6,6 +6,7 @@ const apexReset = document.getElementById("resetChart");
 const apexContainer = document.getElementById("chartContainer");
 const apexStatus = document.getElementById("chartStatus");
 const apexDataTable = document.getElementById("chartDataTable");
+const apexT = window.ChartUtility.t;
 
 let currentApexChart = null;
 
@@ -14,7 +15,12 @@ async function createApexChart(event, announceSuccess = true) {
 
   try {
     if (typeof ApexCharts !== "function") {
-      throw new Error("ApexCharts could not be loaded. Try refreshing the page.");
+      throw new Error(
+        apexT(
+          "charts.apex_unavailable",
+          "ApexCharts could not be loaded. Try refreshing the page.",
+        ),
+      );
     }
 
     const { labels, values } = window.ChartUtility.readChartData(
@@ -30,6 +36,42 @@ async function createApexChart(event, announceSuccess = true) {
       chart: {
         type: apexType.value,
         height: 400,
+        defaultLocale: "site",
+        locales: [
+          {
+            name: "site",
+            options: {
+              months: apexT(
+                "charts.months",
+                "January,February,March,April,May,June,July,August,September,October,November,December",
+              ).split(","),
+              shortMonths: apexT(
+                "charts.short_months",
+                "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec",
+              ).split(","),
+              days: apexT(
+                "charts.days",
+                "Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday",
+              ).split(","),
+              shortDays: apexT(
+                "charts.short_days",
+                "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+              ).split(","),
+              toolbar: {
+                exportToSVG: apexT("charts.download_svg", "Download SVG"),
+                exportToPNG: apexT("charts.download_png", "Download PNG"),
+                exportToCSV: apexT("charts.download_csv", "Download CSV"),
+                menu: apexT("charts.menu", "Menu"),
+                selection: apexT("charts.selection", "Selection"),
+                selectionZoom: apexT("charts.selection_zoom", "Selection Zoom"),
+                zoomIn: apexT("charts.zoom_in", "Zoom In"),
+                zoomOut: apexT("charts.zoom_out", "Zoom Out"),
+                pan: apexT("charts.pan", "Panning"),
+                reset: apexT("charts.reset_zoom", "Reset Zoom"),
+              },
+            },
+          },
+        ],
         toolbar: {
           show: true,
           tools: {
@@ -44,11 +86,17 @@ async function createApexChart(event, announceSuccess = true) {
           export: {
             svg: { filename: "chart" },
             png: { filename: "chart" },
-            csv: { filename: "chart" },
+            csv: {
+              filename: "chart",
+              headerCategory: apexT("charts.csv_category", "category"),
+              headerValue: apexT("charts.csv_value", "value"),
+            },
           },
         },
       },
-      series: isPie ? values : [{ name: "Values", data: values }],
+      series: isPie
+        ? values
+        : [{ name: apexT("charts.values", "Values"), data: values }],
       labels: isPie ? labels : [],
       xaxis: { categories: isPie ? [] : labels },
       legend: { show: isPie },
@@ -60,7 +108,7 @@ async function createApexChart(event, announceSuccess = true) {
     window.ChartUtility.renderDataTable(apexDataTable, labels, values);
     window.ChartUtility.setStatus(
       apexStatus,
-      announceSuccess ? "Chart generated." : "",
+      announceSuccess ? apexT("charts.generated", "Chart generated.") : "",
       "success",
     );
   } catch (error) {

@@ -1,51 +1,57 @@
 ---
 layout: default
 title: Oratot's PVP
+i18n_title: pack.title
 description: Modern Minecraft PVP Resource Pack, also available on Modrinth.
+i18n_description: pack.description
 keywords: Minecraft, PVP, Combat, Resource Pack, Minecraft PVP
 ---
 
-<img src="/assets/oratot_pvp.avif" alt="Oratot's PVP Logo">
+<img src="/assets/oratot_pvp.avif" alt="Oratot's PVP Logo" data-i18n-alt="pack.logo_alt">
 
-## Now with cool stuff!
+<h2 id="now-with-cool-stuff" data-i18n="pack.intro_heading">Now with cool stuff!</h2>
 
-[Go to Downloads](#downloads)
+<a href="#downloads" data-i18n="pack.go_to_downloads">Go to Downloads</a>
 
-This resource pack improves your PvP experience by increasing visibility, along with some little funny textures, some recolors and also more useful cool stuff from Vanilla Tweaks. A lot of vanilla tweaks. This texture pack is a mix of different texture packs made by other people and some features I made myself.
-This resource pack works with:
+<p data-i18n="pack.intro">This resource pack improves your PvP experience by increasing visibility, along with some little funny textures, some recolors and also more useful cool stuff from Vanilla Tweaks. A lot of vanilla tweaks. This texture pack is a mix of different texture packs made by other people and some features I made myself.</p>
+<p data-i18n="pack.compatibility_intro">This resource pack works with:</p>
 
-- [VulkanMod](https://modrinth.com/mod/vulkanmod) ([Glowier Glow](https://vanillatweaks.net/picker/resource-packs/) won't work according to VT, but I haven't tested that)
-- Vulkan Renderer Mode (Official 26.2+) (everything works properly)
-- [Respackopts](https://modrinth.com/mod/respackopts) (from version 2.1 and above)
+<ul>
+  <li data-i18n-html="pack.vulkanmod"><a href="https://modrinth.com/mod/vulkanmod">VulkanMod</a> (<a href="https://vanillatweaks.net/picker/resource-packs/">Glowier Glow</a> won't work according to VT, but I haven't tested that)</li>
+  <li data-i18n="pack.vulkan_renderer">Vulkan Renderer Mode (Official 26.2+) (everything works properly)</li>
+  <li data-i18n-html="pack.respackopts"><a href="https://modrinth.com/mod/respackopts">Respackopts</a> (from version 2.1 and above)</li>
+</ul>
 
-**DISCLAIMER: Use of [NoTextureRotations](https://modrinth.com/mod/notexturerotations/versions) is recommended because of the use of [variated blocks](https://vanillatweaks.net/picker/resource-packs/). That will still not solve non-rotation texture variations, which are locational, but after v2.5 there is an option to remove them.**
+<p><strong data-i18n-html="pack.disclaimer">DISCLAIMER: Use of <a href="https://modrinth.com/mod/notexturerotations/versions">NoTextureRotations</a> is recommended because of the use of <a href="https://vanillatweaks.net/picker/resource-packs/">variated blocks</a>. That will still not solve non-rotation texture variations, which are locational, but after v2.5 there is an option to remove them.</strong></p>
 
-## Features
+<h2 id="features" data-i18n="pack.features_heading">Features</h2>
 
-- **Side Shields** _(From: [SideShieldTexturePack](https://modrinth.com/resourcepack/sideshieldpack))_
-- **Small Shield Blocking** _(From: [Vanilla+](https://discord.gg/marlow))_
-- **Lower Fire** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
-- **Ore Outlines** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
-- **Short Swords**
-- **Small Totems including Pop Animation**
-- **Smaller Utilities** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
-- **Bow Charge Indicator**
-- **Recolored Totems, Crystals and Respawn Anchors**
-- **High Resolution Font** _(From: [Faithful 32x](https://faithfulpack.net))_
-- **Dark GUI** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
-- **Visible Wither Hearts** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/))_
-- **More cool stuff!** _(From: [Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/), [Ice Cream](https://modrinth.com/resourcepack/ice-cream/))_
+<ul>
+  <li><strong data-i18n="pack.side_shields">Side Shields</strong> <em>(<span data-i18n="pack.from">From:</span> <a href="https://modrinth.com/resourcepack/sideshieldpack">SideShieldTexturePack</a>)</em></li>
+  <li><strong data-i18n="pack.small_shield_blocking">Small Shield Blocking</strong> <em>(<span data-i18n="pack.from">From:</span> <a href="https://discord.gg/marlow">Vanilla+</a>)</em></li>
+  <li><strong data-i18n="pack.lower_fire">Lower Fire</strong> <em>(<span data-i18n="pack.from">From:</span> <a href="https://vanillatweaks.net/picker/resource-packs/">Vanilla Tweaks</a>)</em></li>
+  <li><strong data-i18n="pack.ore_outlines">Ore Outlines</strong> <em>(<span data-i18n="pack.from">From:</span> <a href="https://vanillatweaks.net/picker/resource-packs/">Vanilla Tweaks</a>)</em></li>
+  <li><strong data-i18n="pack.short_swords">Short Swords</strong></li>
+  <li><strong data-i18n="pack.small_totems">Small Totems including Pop Animation</strong></li>
+  <li><strong data-i18n="pack.smaller_utilities">Smaller Utilities</strong> <em>(<span data-i18n="pack.from">From:</span> <a href="https://vanillatweaks.net/picker/resource-packs/">Vanilla Tweaks</a>)</em></li>
+  <li><strong data-i18n="pack.bow_charge">Bow Charge Indicator</strong></li>
+  <li><strong data-i18n="pack.recolored_items">Recolored Totems, Crystals and Respawn Anchors</strong></li>
+  <li><strong data-i18n="pack.high_resolution_font">High Resolution Font</strong> <em>(<span data-i18n="pack.from">From:</span> <a href="https://faithfulpack.net">Faithful 32x</a>)</em></li>
+  <li><strong data-i18n="pack.dark_gui">Dark GUI</strong> <em>(<span data-i18n="pack.from">From:</span> <a href="https://vanillatweaks.net/picker/resource-packs/">Vanilla Tweaks</a>)</em></li>
+  <li><strong data-i18n="pack.wither_hearts">Visible Wither Hearts</strong> <em>(<span data-i18n="pack.from">From:</span> <a href="https://vanillatweaks.net/picker/resource-packs/">Vanilla Tweaks</a>)</em></li>
+  <li><strong data-i18n="pack.more_features">More cool stuff!</strong> <em>(<span data-i18n="pack.from">From:</span> <a href="https://vanillatweaks.net/picker/resource-packs/">Vanilla Tweaks</a>, <a href="https://modrinth.com/resourcepack/ice-cream/">Ice Cream</a>)</em></li>
+</ul>
 
-## Installation Guide
+<h2 id="installation-guide" data-i18n="pack.installation_heading">Installation Guide</h2>
 
-After downloading the texture pack, go in Minecraft > Options > Resource Packs > Open Pack Folder. An instance of File Explorer should pop up on the screen, opened on your Minecraft folder.
+<p data-i18n="pack.installation_open_folder">After downloading the texture pack, go in Minecraft > Options > Resource Packs > Open Pack Folder. An instance of File Explorer should pop up on the screen, opened on your Minecraft folder.</p>
 
-Then go back to your browser, click the download icon (usually on the top-right corner of the screen) and click the folder icon next to `Oratot's PVP.zip` (or whatever the file name is, depending on the version you downloaded).<br>
+<p data-i18n-html="pack.installation_browser">Then go back to your browser, click the download icon (usually on the top-right corner of the screen) and click the folder icon next to <code>Oratot's PVP.zip</code> (or whatever the file name is, depending on the version you downloaded).<br></p>
 
-Another instance of File Explorer should pop up.<br>
-Drag `Oratot's PVP.zip` from the instance of File Explorer opened in your downloads folder to the center of the one opened on your Minecraft folder. Go back to Minecraft, and the texture pack should show up.
+<p data-i18n-html="pack.installation_move">Another instance of File Explorer should pop up.<br>
+Drag <code>Oratot's PVP.zip</code> from the instance of File Explorer opened in your downloads folder to the center of the one opened on your Minecraft folder. Go back to Minecraft, and the texture pack should show up.</p>
 
-<details markdown="1"><summary>Credits</summary>
+<details markdown="1"><summary data-i18n="pack.credits_heading">Credits</summary>
 
 - Marlow - Vanilla+ (literally a single file, small shield)
 - ArshuGamingHY - SideShieldTexturePack - © ArshuGamingHY
@@ -53,13 +59,13 @@ Drag `Oratot's PVP.zip` from the instance of File Explorer opened in your downlo
 - Zwaluw - Ice Cream (font)
 - Faithful Resource Pack Team - Faithful 32x (font) - https://faithfulpack.net/
 
-## Permission
+<h2 id="permission" data-i18n="pack.permission_heading">Permission</h2>
 
-![Zwaluw permission](zwaluw.avif)
+<img src="zwaluw.avif" alt="Zwaluw permission" data-i18n-alt="pack.zwaluw_permission_alt">
 
-![Enchanted permission](enchanted.avif)
+<img src="enchanted.avif" alt="Enchanted permission" data-i18n-alt="pack.enchanted_permission_alt">
 
-## All Vanilla Tweaks Credits
+<h2 id="all-vanilla-tweaks-credits" data-i18n="pack.vanilla_tweaks_credits_heading">All Vanilla Tweaks Credits</h2>
 
 Vanilla Tweaks: https://vanillatweaks.net
 
@@ -133,27 +139,29 @@ Pumpkin Carving Competition 2025 winners (credits):
 
 </details>
 
-<details markdown="1"><summary>License</summary>
+<details markdown="1"><summary data-i18n="pack.license_heading">License</summary>
 
-Oratot's PVP is created and maintained by Oratot.
+<p data-i18n="pack.license_author">Oratot's PVP is created and maintained by Oratot.</p>
 
-Do not misrepresent this resource pack or its original contributions
-as your own work.
+<p data-i18n="pack.license_ownership">Do not misrepresent this resource pack or its original contributions
+as your own work.</p>
 
-Minecraft and Minecraft-derived assets are owned by Mojang Studios /
-Microsoft and are subject to their applicable terms.
+<p data-i18n="pack.license_minecraft">Minecraft and Minecraft-derived assets are owned by Mojang Studios /
+Microsoft and are subject to their applicable terms.</p>
 
-Original files independently authored by Oratot,
-including Respackopts configuration, are available under the MIT License.
+<p data-i18n="pack.license_original_files">Original files independently authored by Oratot,
+including Respackopts configuration, are available under the MIT License.</p>
 
-This does not apply to Minecraft-derived assets, Vanilla Tweaks
-material, or other third-party material*.
+<p data-i18n="pack.license_exclusions">This does not apply to Minecraft-derived assets, Vanilla Tweaks
+material, or other third-party material*.</p>
 
-See credits.txt
+<p data-i18n="pack.license_credits">See credits.txt</p>
 
-*Vanilla Tweaks and other third-party material remain subject to their respective licenses and permissions.
+<p data-i18n="pack.license_third_party">*Vanilla Tweaks and other third-party material remain subject to their respective licenses and permissions.</p>
 
-# MIT License
+<h1 id="mit-license" data-i18n="pack.mit_license_heading">MIT License</h1>
+
+<div markdown="1" lang="en">
 
 © 2026 ItzOratotITA
 
@@ -163,13 +171,15 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+</div>
+
 </details>
 
 <div class="d-flex flex-wrap gap-2 my-3" id="downloads">
 
 <div class="dropdown">
   <button class="btn btn-primary border dropdown-toggle" type="button"
-          data-bs-toggle="dropdown" aria-expanded="false">
+          data-bs-toggle="dropdown" aria-expanded="false" data-i18n="pack.downloads">
     Downloads
   </button>
 
@@ -178,26 +188,26 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
     <li>
       <a class="dropdown-item bg-success"
          href="https://modrinth.com/resourcepack/oratotpvp"
-         rel="noopener nofollow">
+         rel="noopener nofollow" data-i18n="pack.modrinth_download">
         Modrinth (recommended)
       </a>
     </li>
     <li>
       <a class="dropdown-item bg-primary"
          href="/pack/Oratot's PVP 2.5.1.zip"
-         download="Oratot's PVP 2.5.1.zip">
+         download="Oratot's PVP 2.5.1.zip" data-i18n="pack.direct_download">
         Direct Download
       </a>
     </li>
     <li>
       <a class="dropdown-item bg-warning text-dark"
          href="/pack/Oratot's PvP b2.5.3.zip"
-         download="Oratot's PvP b2.5.3.zip">
+         download="Oratot's PvP b2.5.3.zip" data-i18n="pack.beta_download">
         Direct Download (26.3 beta)
       </a>
     </li>
 
   </ul>
 </div>
-<a href="https://github.com/ItzOratotITA/OratotPVP" rel="noopener nofollow" class="btn btn-dark border">GitHub Repo</a>
+<a href="https://github.com/ItzOratotITA/OratotPVP" rel="noopener nofollow" class="btn btn-dark border" data-i18n="pack.github_repo">GitHub Repo</a>
 </div>

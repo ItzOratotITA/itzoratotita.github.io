@@ -1,99 +1,224 @@
 ---
 layout: default
 title: QR Code Generator
+i18n_title: utilities.qr_title
 description: Free no-BS static QR Code Generator via qrcode-with-logos, a JavaScript library for generating styled QR codes.
+i18n_description: utilities.qr_description
 keywords: QR code, generator, qrcode-with-logos, logo, JavaScript, utility
 scripts:
-  - src: https://cdn.jsdelivr.net/npm/qrcode-with-logos@1.2.1/lib/qrcode-with-logos.min.js
-    integrity: sha384-2Axv52FuDX/6KwKGK9wCTC/kPovt5AN7Y0M4pL/CW8SMOaUYB0ywx0MJPKvwSiXn
-    defer: true
-  - src: /js/qrcode.js
-    local: true
-    defer: true
+    - src: https://cdn.jsdelivr.net/npm/qrcode-with-logos@1.2.1/lib/qrcode-with-logos.min.js
+      integrity: sha384-2Axv52FuDX/6KwKGK9wCTC/kPovt5AN7Y0M4pL/CW8SMOaUYB0ywx0MJPKvwSiXn
+      defer: true
+    - src: /js/qrcode.js
+      local: true
+      defer: true
 ---
 
-<h1>QR Code Generator</h1>
-<p>Static styled QR Code generator via qrcode-with-logos.</p>
+<h1 data-i18n="utilities.qr_title">QR Code Generator</h1>
+<p data-i18n="utilities.qr_intro">
+    Static styled QR Code generator via qrcode-with-logos.
+</p>
 
 <form id="qrForm" novalidate>
     <div class="mb-3">
         <label for="qrText" class="form-label">
-            Text or link <span class="text-secondary">required</span>
+            <span data-i18n="utilities.qr_text">Text or link</span>
+            <span class="text-secondary" data-i18n="utilities.required"
+                >required</span
+            >
         </label>
-        <input type="text" id="qrText" class="form-control"
+        <input
+            type="text"
+            id="qrText"
+            class="form-control"
             placeholder="Write a link or some text..."
-            value="https://www.oratot.com/c23H43jd90C4" required />
+            data-i18n-placeholder="utilities.qr_text_placeholder"
+            value="https://www.oratot.com/c23H43jd90C4"
+            required
+        />
     </div>
 
     <div class="mb-3">
         <label for="qrLogo" class="form-label">
-            Logo <span class="text-secondary">optional</span>
+            <span data-i18n="utilities.qr_logo">Logo</span>
+            <span class="text-secondary" data-i18n="utilities.optional"
+                >optional</span
+            >
         </label>
-        <input type="file" id="qrLogo" class="form-control"
-            accept="image/png,image/jpeg,image/webp,image/svg+xml" />
-        <div class="form-text text-light">
-            PNG, JPEG, WebP or SVG; up to 50 MiB and 40 megapixels. The image
-            is placed in the middle of the QR code.
+        <input
+            type="file"
+            id="qrLogo"
+            class="form-control"
+            accept="image/png,image/jpeg,image/webp,image/svg+xml"
+        />
+        <div class="form-text text-light" data-i18n="utilities.qr_logo_help">
+            PNG, JPEG, WebP or SVG; up to 50 MiB and 40 megapixels. The image is
+            placed in the middle of the QR code.
         </div>
     </div>
 
     <div class="row g-3 mb-3">
         <div class="col-sm-6 col-lg-3">
-            <label for="dotColor" class="form-label">Dot color</label>
-            <input type="color" id="dotColor"
-                class="form-control form-control-color w-100" value="#000000"
-                title="Choose dot color" />
+            <label
+                for="dotColor"
+                class="form-label"
+                data-i18n="utilities.qr_dot_color"
+                >Dot color</label
+            >
+            <input
+                type="color"
+                id="dotColor"
+                class="form-control form-control-color w-100"
+                value="#000000"
+                title="Choose dot color"
+                data-i18n-title="utilities.qr_choose_dot_color"
+            />
         </div>
         <div class="col-sm-6 col-lg-3">
-            <label for="dotType" class="form-label">Dot type</label>
+            <label
+                for="dotType"
+                class="form-label"
+                data-i18n="utilities.qr_dot_type"
+                >Dot type</label
+            >
             <select id="dotType" class="form-select">
-                <option value="square" selected>Square</option>
-                <option value="dot">Dot</option>
-                <option value="dot-small">Small dot</option>
-                <option value="tile">Tile</option>
-                <option value="rounded">Rounded</option>
-                <option value="diamond">Diamond</option>
-                <option value="star">Star</option>
-                <option value="fluid">Fluid</option>
-                <option value="fluid-line">Fluid line</option>
-                <option value="stripe">Stripe</option>
-                <option value="stripe-row">Horizontal stripe</option>
-                <option value="stripe-column">Vertical stripe</option>
+                <option value="square" selected data-i18n="utilities.qr_square">
+                    Square
+                </option>
+                <option value="dot" data-i18n="utilities.qr_dot">Dot</option>
+                <option value="dot-small" data-i18n="utilities.qr_small_dot">
+                    Small dot
+                </option>
+                <option value="tile" data-i18n="utilities.qr_tile">Tile</option>
+                <option value="rounded" data-i18n="utilities.qr_rounded">
+                    Rounded
+                </option>
+                <option value="diamond" data-i18n="utilities.qr_diamond">
+                    Diamond
+                </option>
+                <option value="star" data-i18n="utilities.qr_star">Star</option>
+                <option value="fluid" data-i18n="utilities.qr_fluid">
+                    Fluid
+                </option>
+                <option value="fluid-line" data-i18n="utilities.qr_fluid_line">
+                    Fluid line
+                </option>
+                <option value="stripe" data-i18n="utilities.qr_stripe">
+                    Stripe
+                </option>
+                <option
+                    value="stripe-row"
+                    data-i18n="utilities.qr_horizontal_stripe"
+                >
+                    Horizontal stripe
+                </option>
+                <option
+                    value="stripe-column"
+                    data-i18n="utilities.qr_vertical_stripe"
+                >
+                    Vertical stripe
+                </option>
             </select>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <label for="cornerColor" class="form-label">Corner color</label>
-            <input type="color" id="cornerColor"
-                class="form-control form-control-color w-100" value="#000000"
-                title="Choose corner color" />
+            <label
+                for="cornerColor"
+                class="form-label"
+                data-i18n="utilities.qr_corner_color"
+                >Corner color</label
+            >
+            <input
+                type="color"
+                id="cornerColor"
+                class="form-control form-control-color w-100"
+                value="#000000"
+                title="Choose corner color"
+                data-i18n-title="utilities.qr_choose_corner_color"
+            />
         </div>
         <div class="col-sm-6 col-lg-3">
-            <label for="cornerType" class="form-label">Corner type</label>
+            <label
+                for="cornerType"
+                class="form-label"
+                data-i18n="utilities.qr_corner_type"
+                >Corner type</label
+            >
             <select id="cornerType" class="form-select">
-                <option value="square" selected>Square</option>
-                <option value="rounded">Rounded</option>
-                <option value="circle">Circle</option>
-                <option value="rounded-circle">Rounded circle</option>
-                <option value="circle-rounded">Circle rounded</option>
-                <option value="circle-star">Circle star</option>
-                <option value="circle-diamond">Circle diamond</option>
+                <option value="square" selected data-i18n="utilities.qr_square">
+                    Square
+                </option>
+                <option value="rounded" data-i18n="utilities.qr_rounded">
+                    Rounded
+                </option>
+                <option value="circle" data-i18n="utilities.qr_circle">
+                    Circle
+                </option>
+                <option
+                    value="rounded-circle"
+                    data-i18n="utilities.qr_rounded_circle"
+                >
+                    Rounded circle
+                </option>
+                <option
+                    value="circle-rounded"
+                    data-i18n="utilities.qr_circle_rounded"
+                >
+                    Circle rounded
+                </option>
+                <option
+                    value="circle-star"
+                    data-i18n="utilities.qr_circle_star"
+                >
+                    Circle star
+                </option>
+                <option
+                    value="circle-diamond"
+                    data-i18n="utilities.qr_circle_diamond"
+                >
+                    Circle diamond
+                </option>
             </select>
         </div>
     </div>
 
     <div class="d-flex flex-wrap gap-2 mb-3">
-        <button id="generateQr" class="btn btn-success border" type="submit">
+        <button
+            id="generateQr"
+            class="btn btn-success border"
+            type="submit"
+            data-i18n="utilities.qr_generate"
+        >
             Generate QR
         </button>
-        <button id="resetQr" class="btn btn-secondary border" type="button">
+        <button
+            id="resetQr"
+            class="btn btn-secondary border"
+            type="button"
+            data-i18n="utilities.reset_settings"
+        >
             Reset settings
         </button>
     </div>
-    <div id="qrStatus" class="utility-status mb-3" role="status" aria-live="polite"></div>
+    <div
+        id="qrStatus"
+        class="utility-status mb-3"
+        role="status"
+        aria-live="polite"
+    ></div>
 </form>
 
 <div class="bg-white p-3 text-center rounded">
-    <canvas id="qrCanvas" class="mw-100" aria-label="Generated QR code"></canvas>
+    <canvas
+        id="qrCanvas"
+        class="mw-100"
+        aria-label="Generated QR code"
+        data-i18n-aria-label="utilities.qr_canvas_label"
+    ></canvas>
 </div>
-<a id="downloadQr" class="btn btn-primary mt-3 d-none border"
-    download="qrcode.png">Download PNG</a>
+<a
+    id="downloadQr"
+    class="btn btn-primary mt-3 d-none border"
+    download="qrcode.png"
+    data-i18n="utilities.qr_download"
+    >Download PNG</a
+>

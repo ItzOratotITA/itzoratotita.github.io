@@ -25,7 +25,12 @@ function createChartJsChart(event, announceSuccess = true) {
 
   try {
     if (typeof Chart !== "function") {
-      throw new Error("Chart.js could not be loaded. Try refreshing the page.");
+      throw new Error(
+        window.ChartUtility.t(
+          "charts.chartjs_unavailable",
+          "Chart.js could not be loaded. Try refreshing the page.",
+        ),
+      );
     }
 
     const { labels, values } = window.ChartUtility.readChartData(
@@ -40,14 +45,18 @@ function createChartJsChart(event, announceSuccess = true) {
       type: chartJsType.value,
       data: {
         labels,
-        datasets: [{ label: "Values", data: values }],
+        datasets: [
+          {
+            label: window.ChartUtility.t("charts.values", "Values"),
+            data: values,
+          },
+        ],
       },
       options: {
         responsive: true,
         animation: false,
         plugins: { legend: { display: chartJsType.value === "pie" } },
-        scales:
-          chartJsType.value === "pie" ? {} : { y: { beginAtZero: true } },
+        scales: chartJsType.value === "pie" ? {} : { y: { beginAtZero: true } },
       },
     });
 
@@ -55,7 +64,9 @@ function createChartJsChart(event, announceSuccess = true) {
     window.ChartUtility.renderDataTable(chartJsDataTable, labels, values);
     window.ChartUtility.setStatus(
       chartJsStatus,
-      announceSuccess ? "Chart generated." : "",
+      announceSuccess
+        ? window.ChartUtility.t("charts.generated", "Chart generated.")
+        : "",
       "success",
     );
   } catch (error) {

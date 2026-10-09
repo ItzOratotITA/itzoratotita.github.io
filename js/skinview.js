@@ -14,15 +14,19 @@ function updateAnimationButton(playing) {
   animationButtonIcon.alt = playing ? "⏸" : "▶";
   animationButton.setAttribute(
     "aria-label",
-    playing ? "Stop animation" : "Start animation",
+    playing
+      ? window.SiteI18n.t("common.skin_stop", "Stop animation")
+      : window.SiteI18n.t("common.skin_start", "Start animation"),
   );
   animationButton.setAttribute("aria-pressed", String(playing));
   skinAnimationPlaying = playing;
 }
 
 function showSkinViewerError() {
-  skinViewerStatus.textContent =
-    "The interactive skin viewer could not be loaded. The skin download is still available.";
+  skinViewerStatus.textContent = window.SiteI18n.t(
+    "common.skin_error",
+    "The interactive skin viewer could not be loaded. The skin download is still available.",
+  );
   skinViewerStatus.classList.remove("d-none");
 }
 
@@ -32,9 +36,8 @@ async function initializeSkinViewer() {
   skinCanvas.setAttribute("aria-busy", "true");
 
   try {
-    skinview3d = await import(
-      "https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/+esm"
-    );
+    skinview3d =
+      await import("https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/+esm");
 
     skinViewer = new skinview3d.SkinViewer({
       canvas: skinCanvas,
@@ -48,10 +51,7 @@ async function initializeSkinViewer() {
     skinViewer.controls.enablePan = true;
 
     const resizeObserver = new ResizeObserver(() => {
-      skinViewer.setSize(
-        skinViewerBox.clientWidth,
-        skinViewerBox.clientHeight,
-      );
+      skinViewer.setSize(skinViewerBox.clientWidth, skinViewerBox.clientHeight);
     });
     resizeObserver.observe(skinViewerBox);
 

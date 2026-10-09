@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Example</title>
+        <title data-i18n="pages.video_title">Example</title>
+        <script src="/js/i18n.js"></script>
         <style>
             html,
             body {
@@ -60,7 +61,12 @@
     </head>
     <body>
         <button class="overlay" id="trigger-overlay" type="button">
-            <span class="click-text" id="prompt-text">click me</span>
+            <span
+                class="click-text"
+                id="prompt-text"
+                data-i18n="pages.video_click"
+                >click me</span
+            >
         </button>
 
         <video class="fullscreen-video" loop playsinline id="rickvideo">
@@ -78,7 +84,11 @@
                     overlay.hidden = true;
                 } catch (error) {
                     console.error("Playback failed:", error);
-                    text.textContent = "click to try again";
+                    text.dataset.i18n = "pages.video_retry";
+                    text.textContent = window.SiteI18n.t(
+                        "pages.video_retry",
+                        "click to try again",
+                    );
                 }
             });
         </script>

@@ -1,64 +1,102 @@
 ---
 layout: default
 title: Nether Coordinate Calculator
+i18n_title: utilities.nether_title
 description: A simple, free no-BS Minecraft utility to convert Overworld coordinates to Nether coordinates and vice versa.
+i18n_description: utilities.nether_description
 keywords: Minecraft, Nether, Overworld, coordinates, converter, utility
 scripts:
-  - src: /js/nether.js
-    local: true
-    defer: true
+    - src: /js/nether.js
+      local: true
+      defer: true
 ---
 
-<h1>Nether Coordinate Calculator</h1>
-<p>
+<h1 data-i18n="utilities.nether_title">Nether Coordinate Calculator</h1>
+<p data-i18n="utilities.nether_intro">
     Convert Minecraft Overworld coordinates to Nether coordinates and vice
     versa.
 </p>
 
 <form id="netherForm" novalidate>
     <div class="mb-3">
-        <label for="direction" class="form-label">Mode</label>
+        <label
+            for="direction"
+            class="form-label"
+            data-i18n="utilities.nether_mode"
+            >Mode</label
+        >
         <select id="direction" class="form-select">
-            <option value="overworld-to-nether" selected>
+            <option
+                value="overworld-to-nether"
+                selected
+                data-i18n="utilities.overworld_to_nether"
+            >
                 Overworld to Nether
             </option>
-            <option value="nether-to-overworld">Nether to Overworld</option>
+            <option
+                value="nether-to-overworld"
+                data-i18n="utilities.nether_to_overworld"
+            >
+                Nether to Overworld
+            </option>
         </select>
     </div>
 
     <div class="row g-3 mb-3">
         <div class="col-sm-6">
-            <label for="x" class="form-label">X coordinate</label>
+            <label for="x" class="form-label" data-i18n="utilities.x_coordinate"
+                >X coordinate</label
+            >
             <input
                 class="form-control"
                 id="x"
                 type="number"
                 step="any"
                 placeholder="Example: 123.5"
+                data-i18n-placeholder="utilities.x_placeholder"
                 required
             />
         </div>
         <div class="col-sm-6">
-            <label for="z" class="form-label">Z coordinate</label>
+            <label for="z" class="form-label" data-i18n="utilities.z_coordinate"
+                >Z coordinate</label
+            >
             <input
                 class="form-control"
                 id="z"
                 type="number"
                 step="any"
                 placeholder="Example: -456"
+                data-i18n-placeholder="utilities.z_placeholder"
                 required
             />
         </div>
     </div>
 
     <div class="d-flex flex-wrap gap-2">
-        <button class="btn btn-success border" type="submit">Convert</button>
-        <button class="btn btn-secondary border" id="resetNether" type="button">
+        <button
+            class="btn btn-success border"
+            type="submit"
+            data-i18n="utilities.convert"
+        >
+            Convert
+        </button>
+        <button
+            class="btn btn-secondary border"
+            id="resetNether"
+            type="button"
+            data-i18n="utilities.reset_settings"
+        >
             Reset settings
         </button>
     </div>
 
-    <div class="mt-3" id="result" aria-live="polite">
+    <div
+        class="mt-3"
+        id="result"
+        aria-live="polite"
+        data-i18n="utilities.result_placeholder"
+    >
         Result will appear here.
     </div>
 </form>

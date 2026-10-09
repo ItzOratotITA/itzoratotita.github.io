@@ -1,67 +1,131 @@
 ---
 layout: default
 title: Chart Generator
+i18n_title: charts.title
 description: No-BS Free Chart generator via ApexCharts, with SVG, PNG and CSV exporting.
+i18n_description: charts.apex_description
 keywords: chart, generator, ApexCharts, SVG, JavaScript, utility
 scripts:
-  - src: https://cdn.jsdelivr.net/npm/apexcharts@7.1.0/dist/apexcharts.min.js
-    integrity: sha384-LS7Ey31bknTiFZaTZdS+1kMLDtoWr/21MeppC9NlfchfBbEr+7Kce6mO+uxNNYor
-    defer: true
-  - src: /js/chart-utils.js
-    local: true
-    defer: true
-  - src: /js/chart-apex.js
-    local: true
-    defer: true
+    - src: https://cdn.jsdelivr.net/npm/apexcharts@7.1.0/dist/apexcharts.min.js
+      integrity: sha384-LS7Ey31bknTiFZaTZdS+1kMLDtoWr/21MeppC9NlfchfBbEr+7Kce6mO+uxNNYor
+      defer: true
+    - src: /js/chart-utils.js
+      local: true
+      defer: true
+    - src: /js/chart-apex.js
+      local: true
+      defer: true
 ---
 
-<h1>Chart Generator</h1>
-<div class="alert alert-warning alert-dismissible fade show text-dark" role="alert">
-    Downloaded SVGs often display correctly only in browsers or apps based on
-    browser frameworks. <a href="/utils/charts/svg_disclaimer">Learn more</a>.
-    <button type="button" class="btn-close" data-bs-dismiss="alert"
-        aria-label="Dismiss warning"></button>
+<h1 data-i18n="charts.title">Chart Generator</h1>
+<div
+    class="alert alert-warning alert-dismissible fade show text-dark"
+    role="alert"
+>
+    <span data-i18n="charts.svg_warning"
+        >Downloaded SVGs often display correctly only in browsers or apps based
+        on browser frameworks.</span
+    >
+    <a href="/utils/charts/svg_disclaimer" data-i18n="charts.learn_more"
+        >Learn more</a
+    >.
+    <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Dismiss warning"
+        data-i18n-aria-label="charts.dismiss_warning"
+    ></button>
 </div>
 <p>
-    Line, bar and pie chart generator via ApexCharts.<br />
-    <a href="/utils/charts/alt">Switch to Chart.js version</a>
+    <span data-i18n="charts.apex_intro"
+        >Line, bar and pie chart generator via ApexCharts.</span
+    ><br />
+    <a href="/utils/charts/alt" data-i18n="charts.switch_chartjs"
+        >Switch to Chart.js version</a
+    >
 </p>
 
 <form id="chartForm" novalidate>
-    <label for="chartType" class="form-label">Chart type</label>
+    <label for="chartType" class="form-label" data-i18n="charts.chart_type"
+        >Chart type</label
+    >
     <select id="chartType" class="form-select mb-3">
-        <option value="bar" selected>Bar chart</option>
-        <option value="pie">Pie chart</option>
-        <option value="line">Line chart</option>
+        <option value="bar" selected data-i18n="charts.bar">Bar chart</option>
+        <option value="pie" data-i18n="charts.pie">Pie chart</option>
+        <option value="line" data-i18n="charts.line">Line chart</option>
     </select>
-    <label for="chartLabels" class="form-label">Labels</label>
-    <input type="text" id="chartLabels" class="form-control mb-3"
+    <label for="chartLabels" class="form-label" data-i18n="charts.labels"
+        >Labels</label
+    >
+    <input
+        type="text"
+        id="chartLabels"
+        class="form-control mb-3"
         placeholder="Example: Apples, Bananas, Oranges"
-        value="Apples, Bananas, Oranges" required />
-    <label for="chartValues" class="form-label">Values</label>
-    <input type="text" id="chartValues" class="form-control mb-3"
-        placeholder="Example: 10, 20, 15" value="10, 20, 15" required />
+        data-i18n-placeholder="charts.labels_placeholder"
+        value="Apples, Bananas, Oranges"
+        required
+    />
+    <label for="chartValues" class="form-label" data-i18n="charts.values"
+        >Values</label
+    >
+    <input
+        type="text"
+        id="chartValues"
+        class="form-control mb-3"
+        placeholder="Example: 10, 20, 15"
+        data-i18n-placeholder="charts.values_placeholder"
+        value="10, 20, 15"
+        required
+    />
     <div class="d-flex flex-wrap gap-2 mb-3">
-        <button id="generateChart" class="btn btn-success border" type="submit">
+        <button
+            id="generateChart"
+            class="btn btn-success border"
+            type="submit"
+            data-i18n="charts.generate"
+        >
             Generate chart
         </button>
-        <button id="resetChart" class="btn btn-secondary border" type="button">
+        <button
+            id="resetChart"
+            class="btn btn-secondary border"
+            type="button"
+            data-i18n="charts.reset"
+        >
             Reset settings
         </button>
     </div>
-    <div id="chartStatus" class="utility-status mb-3" role="status" aria-live="polite"></div>
+    <div
+        id="chartStatus"
+        class="utility-status mb-3"
+        role="status"
+        aria-live="polite"
+    ></div>
 </form>
 
 <div class="bg-white border p-3 text-dark rounded">
-    <div id="chartContainer" role="img" aria-label="Generated chart"></div>
+    <div
+        id="chartContainer"
+        role="img"
+        aria-label="Generated chart"
+        data-i18n-aria-label="charts.generated_chart"
+    ></div>
 </div>
 <details class="chart-data-details mt-3" hidden>
-    <summary class="text-light">Generated chart data</summary>
+    <summary class="text-light" data-i18n="charts.generated_data">
+        Generated chart data
+    </summary>
     <div class="table-responsive mt-2">
-        <table id="chartDataTable"
-            class="chart-data-table table table-dark table-striped caption-top mb-0" hidden></table>
+        <table
+            id="chartDataTable"
+            class="chart-data-table table table-dark table-striped caption-top mb-0"
+            hidden
+        ></table>
     </div>
 </details>
-<p class="small mt-2 mb-0">
-    Use the menu in the top-right corner of the chart to download SVG, PNG or CSV.
+<p class="small mt-2 mb-0" data-i18n="charts.download_help">
+    Use the menu in the top-right corner of the chart to download SVG, PNG or
+    CSV.
 </p>

@@ -1,12 +1,11 @@
-{% assign cache_version = site.github.build_revision %}
-{% unless cache_version %}
-    {% assign cache_version = site.time | date: "%s" %}
-{% endunless %}
+{% assign cache_version = site.github.build_revision %} {% unless cache_version
+%} {% assign cache_version = site.time | date: "%s" %} {% endunless %}
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="/js/i18n.js?v={{ cache_version }}"></script>
         {% seo %} {% if page.keywords %}
         <meta name="keywords" content="{{ page.keywords }}" />
         {% endif %}{% if page.redirect %}
@@ -48,19 +47,18 @@
         />
         {% endif %}
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <link
-            rel="manifest"
-            href="/site.webmanifest?v={{ cache_version }}"
-        />
+        <link rel="manifest" href="/site.webmanifest?v={{ cache_version }}" />
         <meta name="apple-mobile-web-app-title" content="oratot.com" />
-        <link
-            rel="stylesheet"
-            href="/style.css?v={{ cache_version }}"
-        />
+        <link rel="stylesheet" href="/style.css?v={{ cache_version }}" />
     </head>
-    <body class="text-light mb-4">
+    <body
+        class="text-light mb-4"
+        data-page-title="{{ page.title | smartify | strip_html | normalize_whitespace | escape }}"
+        data-page-i18n-title="{{ page.i18n_title }}"
+        data-page-i18n-description="{{ page.i18n_description }}"
+    >
         <nav
-            class="navbar navbar-expand-lg bg-darker fixed-top border-bottom border-light"
+            class="navbar navbar-expand-xl bg-darker fixed-top border-bottom border-light"
             data-bs-theme="dark"
         >
             <div class="container-fluid">
@@ -70,9 +68,11 @@
                         alt="Logo"
                         style="height: 1.5em; width: auto"
                 /></a>
-                <div class="ms-auto d-flex align-items-center gap-2 flex-shrink-0">
+                <div
+                    class="ms-auto d-flex align-items-center gap-2 flex-shrink-0 order-xl-2"
+                >
                     <ul
-                        class="navbar-logos list-unstyled d-none d-lg-flex align-items-center gap-2 mb-0"
+                        class="navbar-logos list-unstyled d-none d-xl-flex align-items-center gap-2 mb-0"
                     >
                         <li>
                             <a
@@ -107,7 +107,11 @@
                         </li>
 
                         <li>
-                            <a class="d-flex p-1" href="/discord" aria-label="Discord">
+                            <a
+                                class="d-flex p-1"
+                                href="/discord"
+                                aria-label="Discord"
+                            >
                                 <img
                                     class="navbar-logo d-block object-fit-contain"
                                     src="/assets/discord-logo.svg"
@@ -117,6 +121,23 @@
                         </li>
                     </ul>
 
+                    <div class="language-switcher" hidden>
+                        <label
+                            for="languageSelect"
+                            class="visually-hidden"
+                            data-i18n="common.language"
+                            >Language</label
+                        >
+                        <select
+                            id="languageSelect"
+                            class="form-select form-select-sm w-auto"
+                            aria-label="Language"
+                            data-i18n-aria-label="common.language"
+                        >
+                            <option value="en" lang="en">EN</option>
+                            <option value="it" lang="it">IT</option>
+                        </select>
+                    </div>
                     <button
                         class="navbar-toggler"
                         type="button"
@@ -125,12 +146,13 @@
                         aria-controls="navbarSupportedContent"
                         aria-expanded="false"
                         aria-label="Toggle navigation"
+                        data-i18n-aria-label="common.toggle_nav"
                     >
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
                 <div
-                    class="collapse navbar-collapse"
+                    class="collapse navbar-collapse justify-content-xl-center order-xl-1"
                     id="navbarSupportedContent"
                 >
                     <ul class="navbar-nav">
@@ -142,7 +164,9 @@
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                GENERAL UTILS
+                                <span data-i18n="common.general_utils"
+                                    >GENERAL UTILS</span
+                                >
                             </a>
                             <ul
                                 class="dropdown-menu dropdown-menu-dark bg-darker border"
@@ -151,6 +175,7 @@
                                     <a
                                         class="dropdown-item"
                                         href="/utils/qrcode"
+                                        data-i18n="common.qr"
                                         >QR Code Generator</a
                                     >
                                 </li>
@@ -158,6 +183,7 @@
                                     <a
                                         class="dropdown-item"
                                         href="/utils/charts/"
+                                        data-i18n="common.charts"
                                         >Chart Generator</a
                                     >
                                 </li>
@@ -171,7 +197,9 @@
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                MINECRAFT UTILS
+                                <span data-i18n="common.minecraft_utils"
+                                    >MINECRAFT UTILS</span
+                                >
                             </a>
                             <ul
                                 class="dropdown-menu dropdown-menu-dark bg-darker border"
@@ -180,21 +208,35 @@
                                     <a
                                         class="dropdown-item"
                                         href="/utils/nether"
+                                        data-i18n="common.nether"
                                         >Nether Coordinates</a
                                     >
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="/pack"
+                                    <a
+                                        class="dropdown-item"
+                                        href="/pack"
+                                        data-i18n="common.pack"
                                         >Resource Pack</a
                                     >
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">ABOUT</a>
+                            <a
+                                class="nav-link"
+                                href="/about"
+                                data-i18n="common.about"
+                                >ABOUT</a
+                            >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/socials">SOCIALS</a>
+                            <a
+                                class="nav-link"
+                                href="/socials"
+                                data-i18n="common.socials"
+                                >SOCIALS</a
+                            >
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="mailto:paride@oratot.com"
@@ -203,10 +245,14 @@
                         </li>
                     </ul>
                     <ul
-                        class="navbar-logos list-unstyled border-top d-flex d-lg-none align-items-center gap-2 mt-3 pt-3 pb-1 mb-0"
+                        class="navbar-logos list-unstyled border-top d-flex d-xl-none align-items-center gap-2 mt-3 pt-3 pb-1 mb-0"
                     >
                         <li>
-                            <a class="d-flex p-1" href="/discord" aria-label="Discord">
+                            <a
+                                class="d-flex p-1"
+                                href="/discord"
+                                aria-label="Discord"
+                            >
                                 <img
                                     class="navbar-logo d-block object-fit-contain"
                                     src="/assets/discord-logo.svg"
@@ -264,6 +310,7 @@
                 <aside
                     class="col-12 col-md-4 order-2 order-md-1"
                     aria-label="Minecraft Skin Viewer"
+                    data-i18n-aria-label="common.skin_viewer"
                 >
                     <div
                         class="border rounded-5 bg-darker position-relative d-flex justify-content-center overflow-hidden skin-viewer-box"
@@ -272,12 +319,14 @@
                             id="skin_container"
                             class="w-100 h-100 d-block m-0 p-0 rounded-5"
                             aria-label="Interactive Minecraft skin viewer"
+                            data-i18n-aria-label="common.skin_interactive"
                         ></canvas>
                         <a
                             href="/assets/ItzOratotITA.png"
                             download="ItzOratotITA.png"
                             class="btn btn-dark border-0 bg-transparent rounded-circle position-absolute top-0 start-0 m-2 skinbtn"
                             aria-label="Download Minecraft skin"
+                            data-i18n-aria-label="common.skin_download"
                         >
                             <img
                                 style="width: 1.5em; height: 1.5em"
@@ -290,6 +339,7 @@
                             class="btn btn-dark border-0 bg-transparent rounded-circle position-absolute top-0 end-0 m-2 skinbtn"
                             type="button"
                             aria-label="Start animation"
+                            data-i18n-aria-label="common.skin_start"
                             aria-pressed="false"
                             disabled
                         >
@@ -318,18 +368,33 @@
         {% for script in page.scripts %}
         <script
             src="{{ script.src }}{% if script.local %}?v={{ cache_version }}{% endif %}"
-            {% if script.type %}type="{{ script.type }}"{% endif %}
-            {% if script.defer %}defer{% endif %}
-            {% if script.integrity %}integrity="{{ script.integrity }}" crossorigin="anonymous"{% endif %}
+            {%
+            if
+            script.type
+            %}type="{{ script.type }}"
+            {%
+            endif
+            %}
+            {%
+            if
+            script.defer
+            %}defer{%
+            endif
+            %}
+            {%
+            if
+            script.integrity
+            %}integrity="{{ script.integrity }}"
+            crossorigin="anonymous"
+            {%
+            endif
+            %}
         ></script>
         {% endfor %}
         <script
             type="module"
             src="/js/skinview.js?v={{ cache_version }}"
         ></script>
-        <script
-            defer
-            src="/js/background.js?v={{ cache_version }}"
-        ></script>
+        <script defer src="/js/background.js?v={{ cache_version }}"></script>
     </body>
 </html>

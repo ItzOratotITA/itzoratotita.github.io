@@ -1,0 +1,100 @@
+---
+permalink: /js/i18n.js
+sitemap: false
+---
+(function initializeI18n() {
+  "use strict";
+
+  const italian = {{ site.data.locales.it | jsonify }};
+  const supported = new Set(["en", "it"]);
+  const storageKey = "oratot.language";
+  const url = new URL(window.location.href);
+  let savedLanguage;
+  try {
+    savedLanguage = window.localStorage.getItem(storageKey);
+  } catch {
+    // Storage may be unavailable in private or restricted browsing contexts.
+  }
+  const requestedLanguage = url.searchParams.get("lang");
+  const language = supported.has(requestedLanguage)
+    ? requestedLanguage
+    : supported.has(savedLanguage) ? savedLanguage : "en";
+  try {
+    window.localStorage.setItem(storageKey, language);
+  } catch {}
+  document.documentElement.lang = language;
+
+  function t(key, fallback, params = {}) {
+    const [section, name] = key.split(".");
+    const translated = language === "it" ? italian[section]?.[name] : undefined;
+    const message = typeof translated === "string" ? translated : fallback;
+    return message.replace(/\{(\w+)\}/g, (match, name) =>
+      Object.hasOwn(params, name) ? String(params[name]) : match,
+    );
+  }
+
+  function localizeLinks(root = document) {
+    for (const anchor of root.querySelectorAll("a[href]")) {
+      const href = anchor.getAttribute("href");
+      if (!href || href.startsWith("#") || anchor.hasAttribute("download")) continue;
+      const target = new URL(href, window.location.href);
+      if (target.origin !== url.origin || !["http:", "https:"].includes(target.protocol)) continue;
+      // Language parameters belong to pages, not downloadable assets.
+      if (/\.[a-z0-9]+$/i.test(target.pathname) && !/\.html$/i.test(target.pathname)) continue;
+      target.searchParams.set("lang", language);
+      anchor.href = target.href;
+    }
+  }
+
+  function applyTranslations() {
+    for (const element of document.querySelectorAll("[data-i18n], [data-i18n-html]")) {
+      if (element.hasAttribute("data-i18n-html")) {
+        // HTML is only taken from our version-controlled dictionaries, never user input.
+        element.innerHTML = t(element.dataset.i18nHtml, element.innerHTML);
+      } else {
+        element.textContent = t(element.dataset.i18n, element.textContent);
+      }
+    }
+    for (const attribute of ["aria-label", "placeholder", "title", "alt"]) {
+      for (const element of document.querySelectorAll(`[data-i18n-${attribute}]`)) {
+        element.setAttribute(attribute, t(
+          element.getAttribute(`data-i18n-${attribute}`),
+          element.getAttribute(attribute) || "",
+        ));
+      }
+    }
+
+    const { pageI18nTitle: i18nTitle, pageI18nDescription: i18nDescription, pageTitle } = document.body.dataset;
+    if (i18nTitle && pageTitle) {
+      const translatedTitle = t(i18nTitle, pageTitle);
+      document.title = document.title.replace(pageTitle, translatedTitle);
+      for (const element of document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]')) {
+        element.content = translatedTitle;
+      }
+    }
+    if (i18nDescription) {
+      for (const element of document.querySelectorAll('meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]')) {
+        element.content = t(i18nDescription, element.content);
+      }
+    }
+    const locale = document.querySelector('meta[property="og:locale"]');
+    if (locale) locale.content = language === "it" ? "it_IT" : "en_US";
+
+    localizeLinks();
+    const selector = document.getElementById("languageSelect");
+    if (selector) {
+      selector.value = language;
+      selector.closest(".language-switcher").hidden = false;
+      selector.addEventListener("change", () => {
+        if (!supported.has(selector.value)) return;
+        const target = new URL(window.location.href);
+        target.searchParams.set("lang", selector.value);
+        // Reload so generated charts and asynchronous status messages use one language.
+        window.location.assign(target.href);
+      });
+    }
+  }
+
+  window.SiteI18n = Object.freeze({ language, t });
+  document.addEventListener("DOMContentLoaded", applyTranslations, { once: true });
+})();
